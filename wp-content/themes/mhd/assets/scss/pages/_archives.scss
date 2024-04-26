@@ -1,0 +1,73 @@
+/* Numbered pagination */
+.blog-pagination {
+    &__navigation {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    ul {
+        position: relative;
+        float: right;
+        margin: $spacing-sm 0 0;
+        padding: 0;
+    }
+
+    li {
+        float: left;
+        list-style-type: none;
+        margin-right: 8px;
+
+        &:before {
+            display: none;
+        }
+
+        span.current,
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            padding: 4px 8px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        span.current {
+            color: #fff;
+            background: #000;
+        }
+        
+        a {
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                color: #fff;
+                background: #000;
+            }
+        }
+    }
+}
+
+.blog-listing {
+    text-align: center;
+
+    &__figure {
+        margin-top: $spacing-xs;
+        text-align: center;
+    }
+
+    &__button {
+        margin-top: $spacing-xs;
+        margin-bottom: 0;
+    }
+
+    & + & {
+        border-top: 1px solid #eee;
+        margin-top: $spacing-sm;
+        padding-top: $spacing-sm;
+    }
+}

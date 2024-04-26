@@ -1,0 +1,856 @@
+[
+    {
+        "key": "group_5a04af254506b",
+        "title": "Property Info",
+        "fields": [
+            {
+                "key": "field_5a04af79d4359",
+                "label": "Agent",
+                "name": "agent",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "mandr_teammembers"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5a04b038d4360",
+                "label": "Sale Type",
+                "name": "sale_type",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "property_sale_type",
+                "field_type": "checkbox",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_5a04b012d435f",
+                "label": "Property Type",
+                "name": "property_type",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "property_type",
+                "field_type": "select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_5b046ddd7aed0",
+                "label": "Property Title",
+                "name": "property_title",
+                "type": "text",
+                "instructions": "If the title is not set, the property title will default to whatever is set as Property Type",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a04af36d4353",
+                "label": "Address",
+                "name": "address",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5a04af46d4354",
+                        "label": "Street Address 1",
+                        "name": "street_1",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a04af53d4355",
+                        "label": "Street Address 2",
+                        "name": "street_2",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a04af5cd4356",
+                        "label": "City",
+                        "name": "city",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a26b099febeb",
+                        "label": "County",
+                        "name": "county",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "County",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a04af60d4357",
+                        "label": "State",
+                        "name": "state",
+                        "type": "taxonomy",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "20",
+                            "class": "",
+                            "id": ""
+                        },
+                        "taxonomy": "property_state",
+                        "field_type": "select",
+                        "allow_null": 0,
+                        "add_term": 0,
+                        "save_terms": 1,
+                        "load_terms": 1,
+                        "return_format": "object",
+                        "multiple": 0
+                    },
+                    {
+                        "key": "field_5a04af6fd4358",
+                        "label": "Zip",
+                        "name": "zip",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "20",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5a04afa9d435a",
+                "label": "Summary Description",
+                "name": "description",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5a04afddd435b",
+                "label": "Building Sq. Ft. Min",
+                "name": "building_sq_ft_min",
+                "type": "number",
+                "instructions": "Default square footage or minimum square footage (if applicable). Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "51",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a0dccca9fa9c",
+                "label": "Building Sq. Ft. Max",
+                "name": "building_sq_ft_max",
+                "type": "number",
+                "instructions": "Use only if applicable. Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "49",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a04afe9d435c",
+                "label": "Rentable Sq. Ft.",
+                "name": "rentable_sq_ft",
+                "type": "number",
+                "instructions": "Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "51",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a04aff4d435d",
+                "label": "Usable Sq. Ft.",
+                "name": "usable_sq_ft",
+                "type": "number",
+                "instructions": "Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "49",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a04b009d435e",
+                "label": "Lot Size",
+                "name": "lot_size",
+                "type": "number",
+                "instructions": "acres",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "51",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a04b066d4362",
+                "label": "Year Built",
+                "name": "year_built",
+                "type": "text",
+                "instructions": "Text field.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "49",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a04b04ed4361",
+                "label": "Building Stories",
+                "name": "building_stories",
+                "type": "text",
+                "instructions": "Text field.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "51",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a2587917b0c8",
+                "label": "Zoning",
+                "name": "zoning",
+                "type": "text",
+                "instructions": "Text field.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "51",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a04b166d4370",
+                "label": "Sale Price",
+                "name": "sale_price",
+                "type": "number",
+                "instructions": "Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a04b16cd4371",
+                "label": "Cap Rate",
+                "name": "cap_rate",
+                "type": "number",
+                "instructions": "Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a0db79a738f8",
+                "label": "Lease Rate Per Month (Minimum)",
+                "name": "lease_price_min",
+                "type": "number",
+                "instructions": "Default rate, or minimum rate (if applicable).  Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a0dfdfcd76b7",
+                "label": "Lease Rate Per Month (Maximum)",
+                "name": "lease_price_max",
+                "type": "number",
+                "instructions": "Use only if applicable.  Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5a04b18bd4373",
+                "label": "Lease Rate Per Sq. Ft.",
+                "name": "lease_rate_per_sq_ft",
+                "type": "number",
+                "instructions": "Per Sq. Ft. Annually. Put in number only.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ".01"
+            },
+            {
+                "key": "field_5a04b1b3d4374",
+                "label": "Lease Type",
+                "name": "lease_type",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Full Service": "Full Service",
+                    "Gross": "Gross",
+                    "Net": "Net",
+                    "Triple Net (NNN)": "Triple Net (NNN)",
+                    "Modified Full Service": "Modified Full Service",
+                    "Modified Gross": "Modified Gross",
+                    "Modified Triple Net (NNN)": "Modified Triple Net (NNN)",
+                    "Other": "Other"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5b0433f57e9a0",
+                "label": "Detailed Description",
+                "name": "detailed_description",
+                "type": "wysiwyg",
+                "instructions": "(Optional)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5b0434507e9a1",
+                "label": "Major Tenant Info",
+                "name": "major_tenant_info",
+                "type": "wysiwyg",
+                "instructions": "(Optional)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5b0434777e9a2",
+                "label": "Miscellaneous",
+                "name": "miscellaneous",
+                "type": "wysiwyg",
+                "instructions": "Use this field for any additional information that doesn't fit in any other category",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5a04b1e9d4375",
+                "label": "Photo Gallery",
+                "name": "photo_gallery",
+                "type": "gallery",
+                "instructions": "1024x600px",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": 6,
+                "insert": "append",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "return_format": "array",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_5a04b1f9d4376",
+                "label": "Video Gallery",
+                "name": "video_gallery",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 6,
+                "layout": "table",
+                "button_label": "Add Video",
+                "sub_fields": [
+                    {
+                        "key": "field_5a04b203d4377",
+                        "label": "Youtube Or Vimeo Link",
+                        "name": "youtube_link",
+                        "type": "text",
+                        "instructions": "Paste the full link from YouTube to an individual video. Do not use links to channels or playlists.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a4fd19364e3c",
+                        "label": "Video Caption",
+                        "name": "video_caption",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5a04cff324a4f",
+                "label": "Brochure File",
+                "name": "brochure_file",
+                "type": "file",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_5a0c5278f5f3a",
+                "label": "Suites",
+                "name": "suites",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add Suite",
+                "sub_fields": [
+                    {
+                        "key": "field_5a0c528ef5f3b",
+                        "label": "Title",
+                        "name": "title",
+                        "type": "text",
+                        "instructions": "Text field.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a0c5299f5f3c",
+                        "label": "Sq. Ft.",
+                        "name": "sq_ft",
+                        "type": "text",
+                        "instructions": "Number only.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "34",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a0c52b3f5f3e",
+                        "label": "Lease Rate Per Month",
+                        "name": "lease_rate_per_month",
+                        "type": "text",
+                        "instructions": "Number only.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5a0c52a3f5f3d",
+                        "label": "Lease Type",
+                        "name": "lease_type",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "Full Service": "Full Service",
+                            "Gross": "Gross",
+                            "Net": "Net",
+                            "Triple Net (NNN)": "Triple Net (NNN)",
+                            "Modified Full Service": "Modified Full Service",
+                            "Modified Gross": "Modified Gross",
+                            "Modified Triple Net (NNN)": "Modified Triple Net (NNN)",
+                            "Other": "Other"
+                        },
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "return_format": "value",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5a53bbfb087c2",
+                        "label": "Optional Brochure",
+                        "name": "optional_brochure",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content",
+            "categories",
+            "tags"
+        ],
+        "active": false,
+        "description": "",
+        "show_in_rest": false
+    }
+]

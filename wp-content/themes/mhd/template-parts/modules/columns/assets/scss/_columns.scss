@@ -1,0 +1,37 @@
+.columns {
+    position: relative;
+
+    &__variable {
+        .columns {
+            &__wrap {
+                display: flex;
+                flex-direction: column;
+
+                @media screen and (min-width: $mobile-break) {
+                    flex-wrap: row;
+                }
+            }
+        }
+
+        .column {
+            + .column {
+                margin-left: 0;
+            }
+
+            @media screen and (max-width: $mobile-break) {
+                + .column {
+                    margin-left: $column-margin;
+                }
+            }
+
+            @media screen and (max-width: $mobile-break-max) {
+                width: 100%;
+                flex-basis: 100% !important;
+            }
+        }
+    }
+
+    &__background {
+        z-index: -1;
+    }
+}

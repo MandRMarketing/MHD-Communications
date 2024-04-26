@@ -1,0 +1,110 @@
+/* Custom Gravity Forms Tooltips */
+
+.gform_fields {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.gfield,
+.gfield li {
+    text-indent: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style-type: none !important;
+
+    &:before {
+        content: normal !important;
+    }
+}
+
+textarea.medium {
+    height: 148px;
+}
+
+.ginput_counter {
+    display: none;
+}
+
+.gfield_description {
+    position: relative;
+    top: -12px;
+    left: 0;
+    font-size: 14px;
+}
+
+.gfield_list_container {
+    tbody {
+        border: none;
+    }
+}
+
+.gfield_list_group {
+    > td {
+        border: none;
+        padding: 0;
+
+        > input {
+            margin: 0;
+        }
+    }
+}
+
+.validation_message {
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: bold;
+
+    &:before {
+        font-family: 'ikes';
+        content: $ikes-cross;
+        margin-right: 6px;
+        color: red;
+    }
+}
+
+.validation_error {
+    padding: 16px;
+    margin-bottom: 24px;
+    background-color: $color-offwhite;
+    border: 2px solid red;
+}
+
+.gform_validation_container,
+.gform_wrapper .gform_validation_container,
+body .gform_wrapper li.gform_validation_container,
+body
+    .gform_wrapper
+    .gform_body
+    ul.gform_fields
+    li.gfield.gform_validation_container,
+body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
+    display: none !important;
+    position: absolute !important;
+    left: -9000px;
+}
+
+// Password reveal
+.ginput_container_password > span {
+    display: flex;
+
+    button {
+        background-color: #fff;
+        width: 50px;
+        border: none;
+        color: $color-text;
+
+        .dashicons-visibility {
+            &:before {
+                content: $ikes-eye-blocked;
+                font-family: 'ikes';
+            }
+        }
+
+        .dashicons-hidden {
+            &:before {
+                content: $ikes-eye;
+                font-family: 'ikes';
+            }
+        }
+    }
+}

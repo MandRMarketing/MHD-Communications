@@ -1,0 +1,57 @@
+.fullwidth-background-section {
+    overflow: hidden;
+
+    video {
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .video_wrapper {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 667px;
+
+        @media (max-width: $first-break-max) {
+            height: 330px;
+        }
+
+        .video-layout-full {
+            position: absolute;
+            height: 680px;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+
+            @media screen and (max-width: $mobile-small) {
+                height: 500px;
+            }
+
+            #background-video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+            }
+        }
+
+        .video_content {
+            position: absolute;
+            z-index: 2;
+            h1 {
+                color: #ffffff;
+                padding: 10px 33px 9px 30px;
+                margin-bottom: 16px;
+                position: relative;
+            }
+        }
+    }
+}

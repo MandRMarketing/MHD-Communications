@@ -1,0 +1,53 @@
+[
+    {
+        "key": "group_5bb3f78beaa98",
+        "title": "Photo Gallery",
+        "fields": [
+            {
+                "key": "field_5bb3f7a124982",
+                "label": "Photos",
+                "name": "photos",
+                "type": "gallery",
+                "instructions": "Images should be 800x600 for best fit",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "insert": "append",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "return_format": "array",
+                "preview_size": "medium"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "default"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": false,
+        "description": "",
+        "show_in_rest": false
+    }
+]

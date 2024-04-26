@@ -1,0 +1,19 @@
+/* Set your primary colors here */
+$color-background: #fff;
+$color-red: #990000;
+$color-blue: #0000ff;
+$color-offwhite: #fefefe;
+$color-black: #282828;
+
+/* Make sure to set this*/
+$color-main: $color-blue;
+
+/* typical text color */
+$color-text: $color-black;
+
+/* color when ya highlight something with the mouse */
+$selectionColor: #333333;
+
+/* simple a and a:hover */
+$color-link: $color-red;
+$color-linkhover: black;

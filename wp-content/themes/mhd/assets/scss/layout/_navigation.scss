@@ -1,0 +1,338 @@
+/* Nav Primary
+---------------------------------------------------------------------------------------------------- */
+.primary-nav {
+    display: inline-block;
+    vertical-align: bottom;
+    clear: right; 
+}  
+
+/*** ESSENTIAL STYLES ***/
+ul.primary-menu {
+    display: flex;
+}
+
+.primary-menu,
+.primary-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.primary-menu li {
+    position: relative; 
+}
+
+.primary-menu ul {
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    z-index: 99; 
+    margin: 0; 
+    max-height: 1px;
+    box-shadow: 0 0 6px grey;
+    overflow: hidden;
+    opacity: 0; 
+
+    transition: all .3s ease-in-out;
+    transition-delay: .75s;
+} 
+
+.primary-menu li:hover > ul,
+.primary-menu li:focus-within > ul {
+    max-height: 1000px; 
+    opacity: 1; 
+
+    transition-delay: 0s;
+}
+
+.primary-menu a {
+    display: block;
+    position: relative;
+}
+
+.primary-menu ul ul {
+    top: 0;
+    left: 100%;
+}
+
+/*** DEMO SKIN ***/
+.primary-menu {
+    float: left;
+    font-size: 16px;
+}
+
+.primary-menu ul {
+    min-width: 180px;
+}
+
+.primary-menu li {
+    white-space: nowrap; /* no need for Supersubs plugin */
+    transition: background 0.2s;
+}
+
+.primary-menu a {
+    padding: 12px 16px;
+    color: #13a;
+    text-decoration: none;
+    background: #bdd2ff;
+
+    &:hover , &:focus {
+        color: red;
+        background: #cfdeff;
+    }
+}
+
+.primary-menu .menu-item-has-children {
+    cursor: pointer;
+}
+
+.primary-menu ul li > a {
+    background: #aabde6;
+}
+
+.primary-menu ul ul li > a {
+    background: #9aaedb;
+}
+ 
+.primary-menu li.current_page_ancestor,
+.primary-menu li.current_page_item,
+.primary-menu li.current_page_parent,
+.primary-menu li.current-menu-parent {
+    
+    > a {
+        color: red;
+        background: #cfdeff; 
+    }
+}
+
+
+/*** arrows (for all except IE7) **/
+.menu-item.menu-item-has-children > a {
+    padding-right: 40px;
+}
+
+/* styling for both css and generated arrows */
+.menu-item-has-children > a:after {
+    content: '';
+    position: absolute;
+    top: calc(50% + 2px);
+    right: 1em; 
+    margin-top: -3px;
+    height: 0;
+    width: 0;
+    /* order of following 3 rules important for fallbacks to work */
+    border: 5px solid transparent;
+    border-top-color: #003e84; /* edit this to suit design (no rgba in IE8) */
+}
+
+.menu-item-has-children > a:hover:after ,
+.menu-item-has-children > a:focus:after ,
+.menu-item-has-children:focus-within > a:after {
+    transform: rotate(180deg)translateY(4px);
+}
+
+ 
+
+/* Mobile navigation bg overlay */
+.navigation-overlay {
+    background-color: #000;
+    position: fixed;
+    z-index: 105;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: opacity 450ms ease;
+
+    body.nav-active & {
+        opacity: 0.6;
+        visibility: visible;
+    }
+}
+
+/* Vertical Header styling
+--------------------------------------------- */
+body.vertical-header {
+    /** 
+	 * SASS variables setting column and body width
+	 */
+    $column: 18vw;
+    $mob-column: 22vw;
+    $body: 81vw;
+    $mob-body: 78vw;
+
+    /* Main wrapper */
+    #main {
+        position: relative;
+        z-index: 0;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    /* Header */
+    #header {
+        background-color: #e5e5e5;
+        float: left;
+        width: $column;
+        position: fixed;
+        z-index: 500;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding: 25px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Fix header container */
+    #header .container {
+        position: fixed;
+        top: auto;
+        left: 0;
+        width: $column;
+        height: 100%;
+        padding: 0 25px;
+    }
+
+    /* Make logo full-width */
+    #header img {
+        width: 100%;
+    }
+
+    /* Content body */
+    .primary-content {
+        position: relative;
+        z-index: 1;
+        float: left;
+        width: $body;
+        margin-left: $column;
+    }
+
+    /* Footer */
+    #footer {
+        padding-left: $column;
+    }
+
+    /* Adjust container width/padding to account for narrower container space */
+    .primary-content,
+    #footer {
+        .container {
+            width: 100%;
+            padding: 0 135px;
+        }
+
+        @media (max-width: $first-break) {
+            .container {
+                width: 100%;
+                padding: 0 75px;
+            }
+        }
+
+        @media (max-width: $mobile-break) {
+            .container {
+                padding: 0 5%;
+            }
+        }
+    }
+
+    /* Navigation Menu */
+    .primary-nav {
+        float: none;
+        text-align: center;
+
+        .primary-menu,
+        .primary-menu li {
+            float: none;
+        }
+
+        .primary-menu li,
+        .primary-menu a {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .sub-menu {
+            position: relative;
+        }
+    }
+
+    @media (max-width: $first-break) {
+        #header,
+        #header .container {
+            width: $mob-column;
+        }
+
+        .primary-content {
+            width: $mob-body;
+            margin-left: $mob-column;
+        }
+
+        #footer {
+            padding-left: $mob-column;
+        }
+    }
+
+    @media (max-width: $second-break) {
+        #header {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 25px 0;
+        }
+
+        #header img {
+            width: auto;
+        }
+
+        #header .container,
+        .primary-content {
+            position: relative;
+            width: 100%;
+            margin: auto;
+            padding: 0;
+        }
+
+        #footer {
+            padding-left: inherit;
+        }
+    }
+}
+
+/* Fixed Nav styling
+--------------------------------------------- */
+body.fixed-header {
+    #header {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 0;
+    }
+
+    h1.site-title {
+        margin: auto;
+
+        img {
+            max-width: 250px;
+        }
+    }
+
+    /* Adjust margin to match height of header */
+    .primary-content {
+        margin-top: 121px;
+    }
+
+    @media (max-width: $second-break) {
+        .primary-content {
+            margin-top: inherit;
+        }
+    }
+}
+ 

@@ -1,0 +1,1 @@
+console.log('paginated menu javascript and styling to come from Clay King'); 
