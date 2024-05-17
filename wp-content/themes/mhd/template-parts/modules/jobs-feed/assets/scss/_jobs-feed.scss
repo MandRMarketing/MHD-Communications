@@ -1,0 +1,21 @@
+.jobs-feed {
+    &__container {
+        &__job {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-top: 1px solid $color-lightblue;
+            a {
+                text-decoration: none;
+            }
+            h2 {
+                text-transform: uppercase;
+                margin-bottom: 0;
+                &::before {
+                    content: unset;
+                }
+            }
+        }
+    }
+}

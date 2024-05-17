@@ -7,9 +7,10 @@ html {
 body {
     background-color: $color-background;
     color: $color-text;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.5;
 
     @media (min-width: $mobile-med) {
@@ -18,7 +19,7 @@ body {
     }
 
     @media (min-width: $second-break) {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     &.nav-active {
@@ -67,8 +68,9 @@ h5,
 .h5,
 h6,
 .h6 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     line-height: 1.2;
     margin: 0 0 12px;
 
@@ -81,33 +83,67 @@ h6,
 }
 h1,
 .h1 {
-    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
 
     @media (min-width: $mobile-med) {
-        font-size: 42px;
-    }
-    @media (min-width: $mobile-break) {
-        font-size: 54px;
-    }
-}
-h2,
-.h2 {
-    font-size: 26px;
-
-    @media (min-width: $mobile-med) {
-        font-size: 32px;
+        font-size: 36px;
     }
     @media (min-width: $mobile-break) {
         font-size: 40px;
     }
 }
-h3,
-.h3 {
-    font-size: 22px;
-    color: $color-blue;
+h2,
+.h2 {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 26px;
 
     @media (min-width: $mobile-med) {
-        font-size: 25px;
+        font-size: 30px;
+    }
+    @media (min-width: $mobile-break) {
+        font-size: 35px;
+    }
+
+    @media (max-width: $first-break-max) {
+        margin-top: 15px;
+        padding-left: 65px;
+        &::before {
+            left: 0 !important;
+        }
+    }
+
+    &::before {
+        content: '';
+        background: url(/wp-content/themes/mhd/assets/images/h2-decoration.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 62px;
+        height: 90px;
+        position: absolute;
+        left: -80px;
+        top: -38px;
+    }
+}
+h3,
+.h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: $color-black;
+
+    @media (min-width: $mobile-med) {
+        font-size: 22px;
     }
 }
 h4,
@@ -126,6 +162,15 @@ h6,
 // Header title
 .header-title {
     text-align: center;
+    background: url(/wp-content/themes/mhd/assets/images/title-bg.jpg);
+    background-size: cover;
+    padding-top: 200px;
+    padding-bottom: 20px;
+
+    h1 {
+        font-weight: 600;
+        color: white;
+    }
 }
 
 /* Typographical Basics +
@@ -133,11 +178,12 @@ h6,
 
 a {
     color: $color-link;
-    text-decoration: none;
+    text-decoration: underline;
 
     &:hover,
     &:focus {
-        color: $color-linkhover;
+        //color: $color-linkhover;
+        text-decoration: none;
     }
 
     img {
@@ -169,6 +215,11 @@ blockquote {
     font-size: 20px;
     font-weight: bold;
     color: $color-blue;
+    border-left: 5px solid $color-lightblue;
+    padding-left: 40px !important;
+    a {
+        font-weight: 900;
+    }
     @media (min-width: $mobile-med) {
         padding: 8px 0 30px;
         font-size: 26px;
@@ -230,18 +281,32 @@ body {
     }
 }
 
-//white text 
+//white text
 .white-text {
     color: #fff;
 
-    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 ,
-    p , ol li , ul li {  
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6,
+    p,
+    ol li,
+    ul li {
         color: #fff;
 
         a:not(.button) {
             color: #fff;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $color-black;
             }
         }

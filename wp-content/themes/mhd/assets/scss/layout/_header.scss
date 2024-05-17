@@ -29,8 +29,6 @@ Site Header
 }
 
 .header {
-    background-color: #fff; 
-    box-shadow: 0 0 10px grey;
     position: fixed;
     z-index: 250;
     top: 0;
@@ -61,10 +59,108 @@ Site Header
         }
     }
 
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 100px;
+        background-color: white;
+        border: 1px solid $color-blue;
+        width: 90%;
+        //clip-path: polygon(0 0, 100% 0%, 97.5% 100%, 0% 100%);
+        position: relative;
+        z-index: -1;
+        &::after {
+            height: 150%;
+            width: 100px;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            border-right: 1px solid $color-blue;
+            position: absolute;
+            content: '';
+            transform: rotate(25deg);
+            transform-origin: bottom right;
+        }
+    }
+
+    &__secondary-container {
+        display: flex;
+        gap: 40px;
+        justify-content: flex-end;
+        background: $color-black;
+        padding: 10px 0;
+        padding-right: 100px;
+        z-index: 1;
+        @media (max-width: 450px) {
+            gap: 10px;
+            padding: 15px;
+            a {
+                font-size: 14px !important;
+            }
+        }
+        a {
+            font-size: 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            &:hover {
+                text-decoration: underline;
+            }
+            &::after {
+                content: '';
+                display: inline-block;
+                background-size: cover !important;
+                background-repeat: no-repeat;
+                background: url(/wp-content/themes/mhd/assets/images/link-arrow.svg);
+                height: 18px;
+                width: 18px;
+            }
+        }
+    }
+    &__navigation {
+        margin: 25px 0;
+        .menu-item {
+            &.current-menu-item {
+                a {
+                    color: $color-black;
+                    background: unset;
+                }
+            }
+            a {
+                background: unset;
+                color: $color-black;
+                font-weight: 600;
+                font-size: 16px;
+                border-bottom: 5px solid transparent;
+                padding: 6px 16px;
+                padding-top: 11px;
+                &:hover {
+                    background: unset;
+                    color: $color-black;
+                    border-bottom: 5px solid $color-lightblue;
+                }
+            }
+        }
+        .sub-menu {
+            li {
+                background: white;
+                &:hover {
+                    background: $color-offwhite;
+                }
+                a {
+                    border-bottom: 0px !important;
+                }
+            }
+        }
+    }
+
     &__logo {
-        padding-top: 10px; 
-        margin: auto;
         float: none;
+        margin-bottom: 0;
 
         @media (max-width: $second-break) {
             margin-bottom: 0;
@@ -75,12 +171,11 @@ Site Header
         }
 
         &__image {
-            max-width: 150px;
+            max-width: 260px;
         }
     }
 
     @media (max-width: $second-break) {
         text-align: center;
     }
-
 }

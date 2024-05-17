@@ -1,124 +1,53 @@
 .team {
     &__member {
+        width: 30%;
+        @media screen and (max-width: $first-break-max) {
+            width: 45%;
+        }
+        @media screen and (max-width: $mobile-break-max) {
+            width: 100%;
+        }
+        background: $color-black;
+        h2,
+        p,
+        a,
+        h3,
+        h4 {
+            padding-left: 0;
+            color: white;
+            &::before {
+                content: unset;
+            }
+        }
         &__popup {
-            display: block;
+            //display: block;
+        }
+        &__heading {
+            padding: 25px;
+            &__name {
+                text-transform: uppercase;
+            }
+            &__title {
+                color: $color-lightblue !important;
+                text-transform: uppercase;
+            }
+        }
+        &__image {
+            width: 100%;
+            object-fit: cover;
         }
     }
     &__inner {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
         width: 100%;
+        gap: 50px;
     }
 }
 
 .team__container {
     display: flex;
     flex-wrap: wrap;
-
-    .teammember {
-        position: relative;
-        float: left;
-        width: 22%;
-        margin-left: 4%;
-        margin-bottom: 72px;
-        text-align: center;
-
-        &__title {
-            margin: 12px 24px;
-        }
-
-        &:nth-child(4n + 1) {
-            margin-left: 0;
-            clear: both;
-        }
-
-        &__image {
-            margin-bottom: 24px;
-            box-shadow: 0 0 1px #000;
-            transition: all 0.4s cubic-bezier(0.2, 0.69, 0.49, 0.98);
-        }
-
-        &:hover {
-            cursor: pointer;
-
-            &__image {
-                box-shadow: 0 0 8px #000;
-                transform: scale(1.05) rotate3d(0, 0, 0, 0);
-            }
-        }
-    }
-    @media screen and (max-width: $large-break) {
-        .teammember {
-            width: 31%;
-            margin-left: 3.5%;
-            &:nth-child(4n + 1) {
-                margin-left: 3.5%;
-                clear: none;
-            }
-            &:nth-child(3n + 1) {
-                margin-left: 0;
-                clear: both;
-            }
-
-            &__image {
-                margin-bottom: 12px;
-            }
-
-            &__title {
-                margin-bottom: 12px;
-            }
-        }
-    }
-    @media screen and (max-width: $second-break) {
-        .teammember {
-            width: 48%;
-            margin-left: 4%;
-            &:nth-child(4n + 1) {
-                margin-left: 4%;
-                clear: none;
-            }
-            &:nth-child(3n + 1) {
-                margin-left: 4%;
-                clear: none;
-            }
-            &:nth-child(2n + 1) {
-                margin-left: 0;
-                clear: both;
-            }
-        }
-    }
-    @media screen and (max-width: $mobile-small) {
-        .teammember {
-            width: 400px;
-            max-width: 90%;
-            margin-left: auto !important;
-            margin-right: auto;
-        }
-    }
-}
-.teammember__title {
-    &__name {
-        display: block;
-        font-size: 26px;
-        margin-bottom: 2px;
-        font-weight: bold;
-    }
-    &__title {
-        display: block;
-        font-size: 22px;
-        font-weight: normal;
-        text-transform: capitalize;
-    }
-
-    @media (max-width: $mobile-med) {
-        &__name {
-            font-size: 24px;
-        }
-        &__title {
-            font-size: 22px;
-        }
-    }
 }
 /**
  * Modal Popup Styling
@@ -143,6 +72,39 @@ body.modal-active {
     max-height: 80%;
     border: none;
 
+    &__container {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 50px;
+        @media screen and (max-width: $mobile-break-max) {
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+
+    &__content {
+        width: 60%;
+        @media screen and (max-width: $mobile-break-max) {
+            width: 100%;
+        }
+        h2 {
+            color: $color-blue;
+            padding-left: 0;
+            &::before {
+                content: unset;
+            }
+        }
+        &__heading {
+            &__title {
+                color: $color-black;
+            }
+        }
+    }
+
+    &__picture {
+        width: 40%;
+        margin-right: 50px;
+    }
     .container {
         max-width: 100%;
     }
@@ -202,14 +164,15 @@ body.modal-active {
         padding: 32px;
     }
     .close-button {
-        background: none;
+        background: $color-lightblue;
+        border-radius: 50%;
         position: absolute;
         z-index: 5;
         top: 18px;
         right: 24px;
         display: inline-block;
-        width: 72px;
-        height: 72px;
+        width: 45px;
+        height: 45px;
         border: none;
         cursor: pointer;
 
@@ -217,24 +180,24 @@ body.modal-active {
         &:after {
             position: relative;
             display: inline-block;
-            width: 40px;
-            height: 6px;
+            width: 25px;
+            height: 5px;
             background-color: $color-blue;
         }
 
         &:before {
             content: '';
             position: absolute;
-            top: 32px;
-            left: 14px;
+            top: 19px;
+            left: 10px;
             transform: translate3d(0, 0, 0) rotate(-45deg);
         }
 
         &:after {
             content: '';
             position: absolute;
-            top: 39px;
-            left: 14px;
+            top: 27px;
+            left: 11px;
             transform: translate3d(0, -8px, 0) rotate(45deg);
         }
 

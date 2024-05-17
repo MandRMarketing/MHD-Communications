@@ -2,14 +2,26 @@
 .section-wrap {
     // last item before footer has padding below
     &:last-child {
-        padding-bottom: 64px;
+        // padding-bottom: 64px;
 
-        @media (max-width: $laptop-break) {
-            padding-bottom: 52px;
+        // @media (max-width: $laptop-break) {
+        //     padding-bottom: 52px;
+        // }
+
+        // @media (max-width: $mobile-med) {
+        //     padding-bottom: 36px;
+        // }
+    }
+
+    &.single-career {
+        padding: 50px 0;
+        .title {
+            padding-top: 190px;
+            background: $color-lightblue;
+            padding-bottom: 20px;
         }
-
-        @media (max-width: $mobile-med) {
-            padding-bottom: 36px;
+        .breadcrumbs {
+            margin: 20px 0;
         }
     }
 

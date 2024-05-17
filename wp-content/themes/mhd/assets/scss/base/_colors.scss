@@ -1,9 +1,9 @@
 /* Set your primary colors here */
 $color-background: #fff;
-$color-red: #990000;
-$color-blue: #0000ff;
-$color-offwhite: #fefefe;
-$color-black: #282828;
+$color-blue: #003c71;
+$color-lightblue: #7bafd4;
+$color-offwhite: #bdd6e6;
+$color-black: #1d252d;
 
 /* Make sure to set this*/
 $color-main: $color-blue;
@@ -15,5 +15,5 @@ $color-text: $color-black;
 $selectionColor: #333333;
 
 /* simple a and a:hover */
-$color-link: $color-red;
-$color-linkhover: black;
+$color-link: $color-blue;
+$color-linkhover: $color-blue;

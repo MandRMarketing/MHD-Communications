@@ -57,9 +57,8 @@ if (have_rows('team')) :
                         <div class="team__member__heading">
                             <h2 class="team__member__heading__name"><?= $name; ?></h2>
                             <h3 class="team__member__heading__title"><?= $title; ?></h3>
-                            <a class="team__member__heading__email" href="mailto:<?= $email ?>"><?= $email ?></a>
-                            <button class="team__member__popup button--clear" data-id="team-<?= sanitize_title($name); ?>">
-                                Read Bio &raquo;
+                            <button class="team__member__popup button--clear button-arrow" data-id="team-<?= sanitize_title($name); ?>">
+                                Read Bio
                                 <span class="sr-only">Read Bio</span>
                             </button>
                         </div>

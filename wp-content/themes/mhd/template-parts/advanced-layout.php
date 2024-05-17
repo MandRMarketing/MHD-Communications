@@ -13,11 +13,11 @@ if (have_rows('page_layouts')) :
 
         /* callout-offset-content */
         elseif (get_row_layout() == 'module_callout_content_cards') :
-            get_template_part('template-parts/modules/callout-offset-content/callout-offset-content');
+            get_template_part('template-parts/modules/callout-content-cards/callout-content-cards');
 
         /* callout-content-cards */
         elseif (get_row_layout() == 'module_callout_offset_content') :
-            get_template_part('template-parts/modules/callout-content-cards/callout-content-cards');
+            get_template_part('template-parts/modules/callout-offset-content/callout-offset-content');
 
         /* cards */
         elseif (get_row_layout() == 'module_cards_slider') :

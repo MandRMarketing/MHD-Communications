@@ -6,8 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <?php
     blog_audience_parameter();
     wp_head();
@@ -43,7 +44,11 @@
 
     <div id="main">
         <header role="banner" id="header" class="header">
-            <div class="header__container container mobile-hide">
+            <div class="header__secondary-container">
+                <a class="button-arrow" href="#" target="_blank" rel="noreferrer">Initiate Remote Support</a>
+                <a class="button-arrow" href="#" target="_blank" rel="noreferrer">Portal Login</a>
+            </div>
+            <div class="header__container mobile-hide">
                 <p class="header__logo site-title">
                     <a class="header__logo__link" href="<?php bloginfo('url'); ?>/">
                         <img class="header__logo__image" src="<?php bloginfo('template_url'); ?>/assets/images/logo.png" alt="<?php echo bloginfo('name'); ?> logo" />

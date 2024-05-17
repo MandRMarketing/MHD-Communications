@@ -4,6 +4,8 @@ $section_classes = get_sub_field('section_classes');
 $include_padding = get_sub_field('padding_between_sections');
 $content = get_sub_field('content');
 $slides = get_sub_field('slides'); // gallery
+$button_link = get_sub_field('button_link');
+$button_text = get_sub_field('button_text');
 $display_type = "Overlay";
 
 // Can't just print an empty id and have id="", so build printout here instead
@@ -30,6 +32,7 @@ $scroll_container_class = ' slider-container';
 $scroll_content_class = ' slider-content';
 ?>
 <section <?= $id; ?> class="section-wrap pages <?= $section_classes; ?>">
+    <div class="container"><?= $content ?></div>
     <div class="pages__container pages__container--list">
         <?php
         if ($slides) :
@@ -82,7 +85,7 @@ $scroll_content_class = ' slider-content';
                                 ?>
                                 <div class="page__content">
                                     <?= $title; ?>
-                                    <span class="btn-arrow"><?= $link_text; ?></span>
+                                    <span class="button-arrow"><?= $link_text; ?></span>
                                 </div>
                             </a>
 
@@ -96,4 +99,5 @@ $scroll_content_class = ' slider-content';
         endif;
         ?>
     </div>
+    <a style="margin: auto; display: table;" class="button" href="<?= $button_link ?>"><?= $button_text ?></a>
 </section>

@@ -3,8 +3,8 @@
 .primary-nav {
     display: inline-block;
     vertical-align: bottom;
-    clear: right; 
-}  
+    clear: right;
+}
 
 /*** ESSENTIAL STYLES ***/
 ul.primary-menu {
@@ -19,28 +19,28 @@ ul.primary-menu {
 }
 
 .primary-menu li {
-    position: relative; 
+    position: relative;
 }
 
 .primary-menu ul {
-    position: absolute; 
+    position: absolute;
     top: 100%;
     left: 0;
-    z-index: 99; 
-    margin: 0; 
+    z-index: 99;
+    margin: 0;
     max-height: 1px;
     box-shadow: 0 0 6px grey;
     overflow: hidden;
-    opacity: 0; 
+    opacity: 0;
 
-    transition: all .3s ease-in-out;
-    transition-delay: .75s;
-} 
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.75s;
+}
 
 .primary-menu li:hover > ul,
 .primary-menu li:focus-within > ul {
-    max-height: 1000px; 
-    opacity: 1; 
+    max-height: 1000px;
+    opacity: 1;
 
     transition-delay: 0s;
 }
@@ -76,7 +76,8 @@ ul.primary-menu {
     text-decoration: none;
     background: #bdd2ff;
 
-    &:hover , &:focus {
+    &:hover,
+    &:focus {
         color: red;
         background: #cfdeff;
     }
@@ -93,18 +94,16 @@ ul.primary-menu {
 .primary-menu ul ul li > a {
     background: #9aaedb;
 }
- 
+
 .primary-menu li.current_page_ancestor,
 .primary-menu li.current_page_item,
 .primary-menu li.current_page_parent,
 .primary-menu li.current-menu-parent {
-    
     > a {
         color: red;
-        background: #cfdeff; 
+        background: #cfdeff;
     }
 }
-
 
 /*** arrows (for all except IE7) **/
 .menu-item.menu-item-has-children > a {
@@ -116,7 +115,7 @@ ul.primary-menu {
     content: '';
     position: absolute;
     top: calc(50% + 2px);
-    right: 1em; 
+    right: 1em;
     margin-top: -3px;
     height: 0;
     width: 0;
@@ -125,17 +124,15 @@ ul.primary-menu {
     border-top-color: #003e84; /* edit this to suit design (no rgba in IE8) */
 }
 
-.menu-item-has-children > a:hover:after ,
-.menu-item-has-children > a:focus:after ,
+.menu-item-has-children > a:hover:after,
+.menu-item-has-children > a:focus:after,
 .menu-item-has-children:focus-within > a:after {
-    transform: rotate(180deg)translateY(4px);
+    transform: rotate(180deg) translateY(4px);
 }
-
- 
 
 /* Mobile navigation bg overlay */
 .navigation-overlay {
-    background-color: #000;
+    background-color: #003c71;
     position: fixed;
     z-index: 105;
     top: 0;
@@ -335,4 +332,3 @@ body.fixed-header {
         }
     }
 }
- 

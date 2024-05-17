@@ -425,13 +425,13 @@ function mandr_create_jobs_cpt()
 		//'description'		  => '',
 		'public'              => true,
 		//'exclude_from_search' => false,
-		'publicly_queryable'  => false,
+		'publicly_queryable'  => true,
 		'show_ui'             => true,
 		'show_in_nav_menus'   => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 5,
-		'menu_icon'           => 'dashicons-format-quote', // https://developer.wordpress.org/resource/dashicons/
+		'menu_icon'           => 'dashicons-id', // https://developer.wordpress.org/resource/dashicons/
 		//'capability_type'     => 'post', 
 		//'capabilities'		  => array( ),
 		//'map_meta_cap'		  => null,

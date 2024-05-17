@@ -1,11 +1,12 @@
 /* Mobile Nav
 ---------------------------------------------------------------------------------------------------- */
-$menu-link-color: $color-blue;
+$menu-link-color: $color-black;
 $menu-link-hover-color: #000;
 $menu-icon-color: $color-blue;
 
 .mobile-nav {
-    //position: fixed;
+    //position: fixed;b
+    background: white;
     position: relative;
     z-index: 250;
     top: 0;
@@ -14,11 +15,15 @@ $menu-icon-color: $color-blue;
     height: auto;
     padding: $spacing-tiny 5%;
 
-    .header--init &,
-    .nav-active & {
-        background: rgb(255, 231, 185); 
-        background: linear-gradient(90deg, rgba(255, 231, 185, 1) 0%, rgba(129, 218, 255, 1) 100%); 
-    }
+    // .header--init &,
+    // .nav-active & {
+    //     background: rgb(255, 231, 185);
+    //     background: linear-gradient(
+    //         90deg,
+    //         rgba(255, 231, 185, 1) 0%,
+    //         rgba(129, 218, 255, 1) 100%
+    //     );
+    // }
 
     /*.scrolling-down:not(.overlay-active):not(.nav-active) & */
     .scrolling-down:not(.nav-active) & {
@@ -41,11 +46,11 @@ $menu-icon-color: $color-blue;
         a {
             background-color: #fff;
             margin-top: $spacing-xs;
-            color: $color-red;
+            color: $color-lightblue;
 
             &:hover,
             &:focus {
-                background-color: $color-red;
+                background-color: $color-lightblue;
                 color: #fff;
             }
         }
@@ -98,7 +103,7 @@ $menu-icon-color: $color-blue;
         position: absolute;
         top: 50%;
         width: 32px;
-        height: 20px; 
+        height: 20px;
         right: 0;
         transform: translateY(-50%);
         margin-left: auto;
@@ -114,7 +119,7 @@ $menu-icon-color: $color-blue;
             left: 0;
             width: 100%;
             height: 3px;
-            background: $color-black;
+            background: $color-lightblue;
             border-radius: 32px;
 
             &.top {
@@ -220,10 +225,12 @@ $menu-icon-color: $color-blue;
 // Primary navigation
 .mobile-menu-primary {
     &__item {
+        border-bottom: 1px solid $color-lightblue;
+
         &__link {
             display: block;
             width: 100%;
-            border-bottom: 1px solid #eee;
+            text-decoration: none;
             padding: $spacing-tiny;
             color: $menu-link-color;
             font-size: 24px;
@@ -233,7 +240,7 @@ $menu-icon-color: $color-blue;
             &:hover,
             &:focus {
                 color: $menu-link-hover-color;
-                text-decoration: underline;
+                background: $color-lightblue;
             }
         }
 
@@ -321,11 +328,12 @@ $menu-icon-color: $color-blue;
             padding-left: 36px;
             font-size: 20px;
             font-weight: 400;
+            text-decoration: unset;
 
             &:hover,
             &:focus {
+                background: $color-lightblue;
                 color: $menu-link-hover-color;
-                text-decoration: underline;
             }
         }
 
@@ -405,42 +413,39 @@ $menu-icon-color: $color-blue;
             height: 100%;
 
             &:before {
-                content: '+';
-                font-size: 32px;
-                font-weight: 700;
-                line-height: 1;
+                content: '';
+                background: url(/wp-content/themes/mhd/assets/images/down-triangle.svg);
                 color: $menu-icon-color;
                 position: absolute;
-                width: 24px;
-                height: 24px;
+                width: 19px;
+                height: 17px;
                 top: 50%;
-                left: 50%; 
-                transform: translate(-50%,-50%);
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin-top: 6px;
             }
         }
 
-        &[aria-expanded="true"] > .mobile-menu-primary__toggle__icon:before {
-            content: '';
-            background: $menu-icon-color;
-            height: 4px;
-            top: 60%;
+        &[aria-expanded='true'] > .mobile-menu-primary__toggle__icon:before {
+            transform: rotate(180deg);
+            margin-top: -6px;
         }
     }
 }
 
-body.nav-active #mobile-trigger .mobile-header__button__icon.top { 
+body.nav-active #mobile-trigger .mobile-header__button__icon.top {
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%)rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
-body.nav-active #mobile-trigger .mobile-header__button__icon.middle { 
+body.nav-active #mobile-trigger .mobile-header__button__icon.middle {
     opacity: 0;
 }
 
-body.nav-active #mobile-trigger .mobile-header__button__icon.bottom { 
+body.nav-active #mobile-trigger .mobile-header__button__icon.bottom {
     bottom: auto;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%)rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
 }

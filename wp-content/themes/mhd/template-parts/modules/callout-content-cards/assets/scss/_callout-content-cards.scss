@@ -1,0 +1,166 @@
+.callout-content-cards {
+    position: relative;
+    padding-bottom: 0;
+    &.callout-top {
+        &::before {
+            content: '';
+            background: url(/wp-content/themes/mhd/assets/images/callout-bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 90%;
+            width: 100%;
+        }
+    }
+    &.callout-bottom {
+        &::before {
+            content: '';
+            background: url(/wp-content/themes/mhd/assets/images/callout-bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 90%;
+            width: 100%;
+        }
+    }
+    &::before {
+        content: '';
+        background: url(/wp-content/themes/mhd/assets/images/callout-bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 85%;
+        width: 100%;
+    }
+    &__container {
+        &__callout {
+            position: relative;
+            padding: 50px 25px;
+            color: white;
+            display: flex;
+            z-index: 1;
+            font-size: 30px;
+            @media (max-width: $first-break-max) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                img {
+                    border-right: 0px !important;
+                    border-bottom: 5px solid white;
+                    margin-right: 0px !important;
+                    padding-right: 0px !important;
+                    margin-bottom: 50px;
+                    padding-bottom: 50px;
+                }
+                p {
+                    text-align: center;
+                }
+            }
+            img {
+                border-right: 5px solid white;
+                margin-right: 50px;
+                padding-right: 50px;
+            }
+            a {
+                color: white;
+            }
+            &::before {
+                content: '';
+                z-index: -1;
+                background: rgb(0, 60, 113);
+                background: linear-gradient(
+                    90deg,
+                    rgba(0, 60, 113, 1) 0%,
+                    rgba(123, 175, 212, 1) 100%
+                );
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -50%;
+                width: 150%;
+                height: 100%;
+                clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
+                @media (max-width: $first-break-max) {
+                    clip-path: unset;
+                    left: -25%;
+                }
+            }
+        }
+        &__cards {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            padding: 50px 0;
+            gap: 25px;
+            @media (max-width: $first-break-max) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 50px;
+                .card {
+                    width: 100% !important;
+                    text-align: center;
+                }
+            }
+            .card {
+                background: $color-offwhite;
+                width: calc(33% - 25px);
+                padding: 25px;
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &__content {
+            position: relative;
+            padding: 100px;
+            padding-left: calc(35% + 100px);
+            @media (max-width: $first-break-max) {
+                padding: 75px 0;
+            }
+            color: $color-black;
+            z-index: 1;
+            &::before {
+                content: '';
+                background: white;
+                width: 100%;
+                right: -35%;
+                top: 0;
+                height: 100%;
+                position: absolute;
+                z-index: -1;
+                @media (max-width: $first-break-max) {
+                    right: 0;
+                    width: 150%;
+                    left: -25%;
+                }
+            }
+        }
+    }
+    &.numbers {
+        .callout-content-cards__container__cards {
+            padding: 100px 0;
+
+            .card {
+                background: unset;
+            }
+
+            h2 {
+                color: white;
+                font-size: 101px;
+                font-weight: 900;
+            }
+            p {
+                color: white;
+                font-size: 35px;
+                font-weight: 900;
+            }
+        }
+    }
+}

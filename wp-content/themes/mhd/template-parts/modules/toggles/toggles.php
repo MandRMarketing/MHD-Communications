@@ -2,6 +2,7 @@
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
 $toggles = get_sub_field('toggles'); // repeater
+$content = get_sub_field('content');
 
 // Can't just print an empty id and have id="", so build printout here instead
 $id = !empty($section_id) ? "id=\"{$section_id}\"" : '';
@@ -19,6 +20,9 @@ if ($padding_top && $padding_bottom) {
 }
 ?>
 <section <?= $id; ?> class="section-wrap toggles <?= $section_classes; ?>">
+    <div class="toggles__content container">
+        <?= $content = get_sub_field('content'); ?>
+    </div>
     <div class="toggles__container container">
         <?php
         foreach ($toggles as $toggle) :
@@ -28,9 +32,9 @@ if ($padding_top && $padding_bottom) {
         ?>
             <div class="toggle">
                 <button class="toggle__trigger" aria-expanded="false">
-                    <span class="toggle__trigger-text" data-show="display" data-hide="collapse">Display</span>
-                    <?= $title; ?>
                     <span class="toggle__trigger-icon" aria-hidden="true"></span>
+                    <span class="toggle__trigger-text sr-only" data-show="display" data-hide="collapse">Display</span>
+                    <?= $title; ?>
                 </button>
                 <div class="toggle__box" aria-hidden="true">
                     <?= do_shortcode($content); ?>

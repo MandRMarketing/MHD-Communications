@@ -3,17 +3,105 @@ Site Footer
 ---------------------------------------------------------------------------------------------------- */
 
 #footer {
-    background-color: #fff;
-    color: #999;
-    font-size: 14px;
-    padding: 40px 0;
-    text-align: center;
-
-    a {
-        border-bottom: 1px solid #ddd;
-    }
-
+    overflow: hidden;
     p {
-        margin-bottom: 0;
+        margin-bottom: 12px;
+    }
+}
+
+.footer {
+    background: $color-black !important;
+    padding: 0 !important;
+    position: relative;
+    &::before {
+        content: '';
+        background: white;
+        background-size: cover;
+        width: 375px;
+        height: 150%;
+        position: absolute;
+        left: 0;
+        top: -100px;
+        transform: rotate(-25deg);
+        transform-origin: bottom right;
+        @media (max-width: 1650px) {
+            display: none;
+        }
+    }
+    &::after {
+        content: '';
+        background: url(/wp-content/themes/mhd/assets/images/mhd-logo.png);
+        background-size: cover;
+        width: 243px;
+        height: 200px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        @media (max-width: 1650px) {
+            display: none;
+        }
+    }
+    &__primary {
+        padding: 50px 0;
+        background: transparent;
+        text-align: left;
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            @media (max-width: $first-break-max) {
+                flex-direction: column;
+                gap: 40px;
+            }
+            &::before,
+            &::after {
+                content: unset;
+            }
+            > div {
+                border-left: 5px solid white;
+                padding: 0 20px;
+                h3 {
+                    color: white !important;
+                }
+                a {
+                    margin-bottom: 12px;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+                a:not([class]) {
+                    color: white;
+                    display: block;
+                }
+            }
+            &__left {
+            }
+            &__center {
+            }
+            &__right {
+            }
+        }
+    }
+    .social-links {
+        a {
+            background: $color-offwhite;
+            color: $color-black;
+            text-decoration: none;
+        }
+        @media (max-width: $first-break-max) {
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+    }
+    &__copyright {
+        text-align: center;
+        background: white;
+        font-size: 16px;
+        padding: 30px 0;
+        color: $color-blue;
+
+        p,
+        a {
+            color: $color-blue;
+        }
     }
 }
