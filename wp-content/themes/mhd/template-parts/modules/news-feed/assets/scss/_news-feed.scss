@@ -89,6 +89,11 @@
                 &::after {
                     background: url(/wp-content/themes/mhd/assets/images/button-arrow-blue.svg) !important;
                 }
+                &:hover {
+                    &::after {
+                        background: url(/wp-content/themes/mhd/assets/images/blue-arrow-hover.svg) !important;
+                    }
+                }
             }
             a {
                 font-size: 16px;

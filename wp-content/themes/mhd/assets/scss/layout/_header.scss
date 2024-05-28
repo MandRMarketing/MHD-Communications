@@ -73,6 +73,7 @@ Site Header
         position: relative;
         z-index: -1;
         &::after {
+            z-index: -1;
             height: 150%;
             width: 100px;
             right: 0;

@@ -42,11 +42,30 @@
         }
     }
 
+    &.diff-bg-3 {
+        &::before {
+            background: url(/wp-content/themes/mhd/assets/images/diff-bg-3.jpg);
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+    }
+
+    &.diff-bg-4 {
+        &::before {
+            background: url(/wp-content/themes/mhd/assets/images/diff-bg-4.jpg);
+        }
+    }
+
     &.icons {
         .one-third {
             @media (min-width: $second-break) {
                 margin-bottom: 40px;
             }
+        }
+
+        .one-half {
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
     }
 
@@ -84,6 +103,9 @@
             background: $color-offwhite;
             color: $color-black !important;
             margin: 10px;
+            @media (max-width: $mobile-break-max) {
+                margin: 10px 0;
+            }
             p {
                 text-align: left;
                 padding: 30px;
@@ -112,15 +134,26 @@
     }
 
     &.single-career {
-        padding: 50px 0;
+        //padding: 40px 0;
         .title {
             padding-top: 190px;
             background: $color-lightblue;
-            padding-bottom: 20px;
+            padding-bottom: 40px;
+            h1 {
+                margin-bottom: 0;
+            }
+            @media (max-width: $first-break-max) {
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
         }
         .breadcrumbs {
             margin: 20px 0;
         }
+    }
+
+    &.blue {
+        background: $color-blue;
     }
 
     &.include-padding {
