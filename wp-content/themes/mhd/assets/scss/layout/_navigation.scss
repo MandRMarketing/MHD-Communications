@@ -100,14 +100,17 @@ ul.primary-menu {
 .primary-menu li.current_page_parent,
 .primary-menu li.current-menu-parent {
     > a {
-        color: red;
-        background: #cfdeff;
+        border-bottom: 0.5rem solid transparent;
     }
 }
 
 /*** arrows (for all except IE7) **/
 .menu-item.menu-item-has-children > a {
     padding-right: 40px;
+}
+
+.primary-menu > .current-menu-item a {
+    border-bottom: 0.5rem solid $color-lightblue !important;
 }
 
 /* styling for both css and generated arrows */
@@ -121,7 +124,13 @@ ul.primary-menu {
     width: 0;
     /* order of following 3 rules important for fallbacks to work */
     border: 5px solid transparent;
-    border-top-color: #003e84; /* edit this to suit design (no rgba in IE8) */
+    border-top-color: $color-lightblue; /* edit this to suit design (no rgba in IE8) */
+}
+
+.menu-item-has-children {
+    .current-menu-item {
+        background: $color-offwhite !important;
+    }
 }
 
 .menu-item-has-children > a:hover:after,

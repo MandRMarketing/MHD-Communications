@@ -20,7 +20,11 @@
         height: 680px;
         @media screen and (max-width: $second-break-max) {
             height: 350px;
-            margin-top: 100px;
+            margin-top: 150px;
+        }
+        @media screen and (max-width: $mobile-break-max) {
+            height: 350px;
+            margin-top: 150px;
         }
 
         .video-layout-full {
@@ -59,7 +63,7 @@
             color: white;
             padding-top: 170px;
             @media screen and (max-width: $second-break-max) {
-                padding: 0;
+                padding: 20px;
             }
             h1 {
                 color: #ffffff;

@@ -1,4 +1,5 @@
 <?php
+$content = get_sub_field('content');
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
 $include_padding = get_sub_field('padding_between_sections');
@@ -38,7 +39,7 @@ $scroll_content_class = ' slider-content';
         if ($slides) :
             $total = count($slides);
         ?>
-            <div class="pages__inner container <?= $scroll_container_class; ?>" data-count="<?= $total; ?>">
+            <div class="pages__inner <?= $scroll_container_class; ?>" data-count="<?= $total; ?>">
                 <ul class="pages__list <?= $scroll_content_class; ?>">
                     <?php
                     $classes = 'pages__list-item page';
@@ -94,10 +95,29 @@ $scroll_content_class = ' slider-content';
                     endforeach;
                     ?>
                 </ul>
+                <script>
+                    jQuery(window).load(function() {
+                        jQuery('.pages__list').slick({
+                            autoplay: false,
+                            rows: 0,
+                            slide: '.page',
+                            slidesToShow: 4.5,
+                            speed: 500,
+                            autoplaySpeed: 4000,
+                            infinite: false,
+                            responsive: [{
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 1.5,
+                                }
+                            }, ]
+                        });
+                    });
+                </script>
             </div>
         <?php
         endif;
         ?>
     </div>
-    <a style="margin: auto; display: table;" class="button" href="<?= $button_link ?>"><?= $button_text ?></a>
+    <a class="button all-articles" href="<?= $button_link ?>"><?= $button_text ?></a>
 </section>

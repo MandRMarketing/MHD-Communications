@@ -17,9 +17,11 @@
             position: relative;
             padding: 100px;
             margin-top: 200px;
-            padding-left: calc(35% + 100px);
+            padding-left: calc(35% + 200px);
+            margin-right: -200px;
             @media (max-width: $first-break-max) {
                 margin-top: 0;
+                margin-right: 0;
                 padding: 75px 0;
             }
             color: $color-black;
@@ -45,10 +47,17 @@
         background: $color-blue;
         .offset-content-bg__container {
             padding-top: 200px;
+            @media (max-width: $first-break-max) {
+                padding-top: 25px;
+            }
         }
         .offset-content-bg__container__content {
             margin-top: 0px;
             padding-top: 100px;
+            @media (max-width: $first-break-max) {
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
         }
     }
 }

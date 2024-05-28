@@ -45,13 +45,13 @@
     <div id="main">
         <header role="banner" id="header" class="header">
             <div class="header__secondary-container">
-                <a class="button-arrow" href="#" target="_blank" rel="noreferrer">Initiate Remote Support</a>
-                <a class="button-arrow" href="#" target="_blank" rel="noreferrer">Portal Login</a>
+                <a class="button-arrow" href="https://mhdit.hostedrmm.com:8040/ " target="_blank" rel="noreferrer">Initiate Remote Support</a>
+                <a class="button-arrow" target="_blank" href="https://mhdit.myportallogin.com/" rel="noreferrer">Portal Login</a>
             </div>
             <div class="header__container mobile-hide">
                 <p class="header__logo site-title">
                     <a class="header__logo__link" href="<?php bloginfo('url'); ?>/">
-                        <img class="header__logo__image" src="<?php bloginfo('template_url'); ?>/assets/images/logo.png" alt="<?php echo bloginfo('name'); ?> logo" />
+                        <img class="header__logo__image" src="<?php bloginfo('template_url'); ?>/assets/images/logo.svg" alt="<?php echo bloginfo('name'); ?> logo" />
                     </a>
                     <span class="header__logo__text sr-only"><?php echo bloginfo('name'); ?></span>
                 </p>

@@ -3,6 +3,12 @@
         &__job {
             display: flex;
             justify-content: space-between;
+            @media (max-width: $first-break-max) {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 25px;
+            }
             align-items: center;
             padding: 25px 0;
             border-top: 1px solid $color-lightblue;
@@ -11,7 +17,9 @@
             }
             h2 {
                 text-transform: uppercase;
+                font-weight: 700;
                 margin-bottom: 0;
+                padding: 0;
                 &::before {
                     content: unset;
                 }

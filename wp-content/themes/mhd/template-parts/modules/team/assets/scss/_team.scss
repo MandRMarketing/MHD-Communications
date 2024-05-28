@@ -26,9 +26,10 @@
             padding: 25px;
             &__name {
                 text-transform: uppercase;
+                font-weight: 700;
             }
             &__title {
-                color: $color-lightblue !important;
+                color: $color-offwhite !important;
                 text-transform: uppercase;
             }
         }

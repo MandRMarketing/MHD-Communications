@@ -1,5 +1,4 @@
 <?php
-add_action('wp_head', 'blog_single_schema');
 get_header();
 ?>
 <main id="primary-wrap" class="primary-content">
@@ -8,7 +7,9 @@ get_header();
 	?>
 			<article id="post-<?= $id ?>" <?php post_class('post post-holder single-post'); ?>>
 				<section class="section-wrap single-post-meta">
-					<div class="container">
+					<?php get_template_part('template-parts/title'); ?>
+
+					<div class="container" style="margin-top: 50px;">
 
 
 						<?php
@@ -18,26 +19,42 @@ get_header();
 							<div class="breadcrumbs">
 								<a href="<?= get_the_permalink($blog_page_id); ?>">
 									<span class="ikes-chevron-left" aria-hidden="true"></span>
-									Back to <?= get_the_title($blog_page_id); ?></a>
+									Back to Blogs</a>
 							</div>
 						<?php
 						endif;
 						?>
 
 						<div class="post-meta">
-							<?= blog_categories($id); ?>
-							<h1><?= the_title(); ?></h1>
+							<p>Written by <?= get_the_author_meta('first_name'); ?> <?= get_the_author_meta('last_name'); ?></p>
 							<time datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
-							<!-- <?= blog_tags($id); ?> -->
-						</div>
-						<div class="post-content">
-							<?php the_post_thumbnail() ?>
-							<?php the_content(); ?>
 						</div>
 
 					</div>
 				</section>
 				<?php get_template_part('template-parts/advanced-layout'); ?>
+				<section class="section-wrap single-post-meta">
+					<div class="container" style="margin-bottom: 50px;">
+						<div class="post-meta">
+							<?= blog_categories($id); ?>
+						</div>
+
+						<?php
+						$blog_page_id = get_option('page_for_posts');
+						if ($blog_page_id) :
+						?>
+							<div class="breadcrumbs">
+								<a href="<?= get_the_permalink($blog_page_id); ?>">
+									<span class="ikes-chevron-left" aria-hidden="true"></span>
+									Back to Blogs</a>
+							</div>
+						<?php
+						endif;
+						?>
+
+					</div>
+				</section>
+
 			</article>
 	<?php endwhile;
 	endif; ?>

@@ -23,3 +23,86 @@ hr {
     margin: 8px 0 10px;
     padding: 0;
 }
+
+.gchoice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+    input {
+        margin: 0;
+    }
+}
+
+.cat-list {
+    display: flex;
+    gap: 15px;
+}
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    margin: 25px 0;
+    border-top: 1px solid $color-lightblue;
+    border-bottom: 1px solid $color-lightblue;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.archive-holder {
+    .featured-blog {
+        padding: 50px 0;
+        display: flex;
+        @media (max-width: $first-break-max) {
+            flex-direction: column-reverse;
+        }
+        &__image {
+            width: 50%;
+            @media (max-width: $first-break-max) {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &__content {
+            padding: 25px;
+            width: 50%;
+            @media (max-width: $first-break-max) {
+                width: 100%;
+            }
+            background: $color-blue;
+            * {
+                color: white;
+            }
+            time {
+                font-size: 18px;
+            }
+            a:not([class]) {
+                color: $color-offwhite;
+                font-size: 18px;
+            }
+        }
+    }
+    .filter-bar {
+        padding-bottom: 25px;
+        form {
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+            select {
+                width: 25%;
+                @media (max-width: $first-break-max) {
+                    width: 100%;
+                }
+                border: 1px solid $color-blue;
+            }
+        }
+    }
+}

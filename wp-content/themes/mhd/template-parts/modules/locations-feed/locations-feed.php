@@ -42,7 +42,7 @@ if ($padding_top && $padding_bottom) {
                     <a href="<?= $link ?>">
                         <h3> <?= $title ?> </h3>
                     </a>
-                    <a class="button" href="<?= $link ?>">View Location</a>
+                    <a class="button" href="<?= $link ?>">View Location<span class="link-spanner"></span></a>
                 </div>
             <?php
             endwhile;
@@ -54,8 +54,6 @@ if ($padding_top && $padding_bottom) {
         <?php
         endif;
         ?>
-
-    </div>
 
     </div>
 </section>

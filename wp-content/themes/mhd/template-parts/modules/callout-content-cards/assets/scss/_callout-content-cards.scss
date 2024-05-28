@@ -2,6 +2,7 @@
     position: relative;
     padding-bottom: 0;
     &.callout-top {
+        padding-top: 0;
         &::before {
             content: '';
             background: url(/wp-content/themes/mhd/assets/images/callout-bg.jpg);
@@ -12,6 +13,9 @@
             left: 0;
             height: 90%;
             width: 100%;
+            @media (max-width: 500px) {
+                background-position-x: -850px;
+            }
         }
     }
     &.callout-bottom {
@@ -42,11 +46,17 @@
         &__callout {
             position: relative;
             padding: 50px 25px;
+            padding-right: 100px;
             color: white;
             display: flex;
             z-index: 1;
             font-size: 30px;
+            a {
+                text-wrap: nowrap;
+            }
             @media (max-width: $first-break-max) {
+                padding-right: 25px;
+                padding: 25px;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
@@ -60,6 +70,20 @@
                 }
                 p {
                     text-align: center;
+                }
+            }
+            > div {
+                p:nth-of-type(1) {
+                    font-weight: 500;
+                    text-shadow: 2px 2px 12px #00000063;
+                }
+                p:nth-of-type(2) {
+                    font-weight: 900;
+                    text-shadow: 2px 2px 12px #00000063;
+                    a {
+                        font-weight: 900;
+                        text-shadow: 2px 2px 12px #00000063;
+                    }
                 }
             }
             img {
@@ -120,9 +144,11 @@
         &__content {
             position: relative;
             padding: 100px;
-            padding-left: calc(35% + 100px);
+            padding-left: calc(35% + 200px);
+            margin-right: -200px;
             @media (max-width: $first-break-max) {
-                padding: 75px 0;
+                padding: 24px 0;
+                margin-right: 0;
             }
             color: $color-black;
             z-index: 1;
@@ -146,6 +172,9 @@
     &.numbers {
         .callout-content-cards__container__cards {
             padding: 100px 0;
+            @media (max-width: $first-break-max) {
+                padding: 24px 0;
+            }
 
             .card {
                 background: unset;
@@ -153,13 +182,42 @@
 
             h2 {
                 color: white;
-                font-size: 101px;
+                font-size: 80px;
+                @media (max-width: $first-break-max) {
+                    //font-size: 70px;
+                    padding-left: 55px;
+                    text-align: left;
+                }
                 font-weight: 900;
             }
             p {
                 color: white;
                 font-size: 35px;
                 font-weight: 900;
+                @media (max-width: $first-break-max) {
+                    padding-left: 55px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    &.no-content-bg {
+        &::before {
+            background: url(/wp-content/themes/mhd/assets/images/callout-bg-3.jpg) !important;
+            background-size: cover !important;
+            background-position: right !important;
+            background-repeat: no-repeat !important;
+            @media (max-width: $first-break-max) {
+                background: $color-blue !important;
+            }
+        }
+        .callout-content-cards__container__content {
+            color: white;
+            padding: unset;
+            margin-right: unset;
+
+            &::before {
+                content: unset;
             }
         }
     }

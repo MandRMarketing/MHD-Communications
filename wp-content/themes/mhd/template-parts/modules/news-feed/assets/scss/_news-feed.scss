@@ -6,7 +6,7 @@
         }
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         .button {
             @media (max-width: $first-break-max) {
                 display: none;
@@ -16,26 +16,42 @@
 
     &__wrapper {
         display: flex;
+        gap: 40px;
+        &::before,
+        &::after {
+            content: unset;
+        }
         > .button {
             display: none;
         }
         @media (max-width: $first-break-max) {
             display: flex;
             flex-direction: column;
+            gap: 20px;
             > .button {
                 display: inline-block;
             }
         }
     }
     &__first-container {
+        width: 50%;
+        @media (max-width: $first-break-max) {
+            width: 100%;
+        }
         .news-feed__container__article {
             border-bottom: 0;
         }
     }
     &__container {
+        width: 50%;
         // column-count: 2;
         @media (max-width: $first-break-max) {
             display: none;
+        }
+
+        &::before,
+        &::after {
+            content: unset;
         }
 
         &__article {
@@ -46,9 +62,9 @@
             }
             a {
                 text-decoration: none;
-                &:hover {
-                    text-decoration: underline;
-                }
+                // &:hover {
+                //     text-decoration: underline;
+                // }
             }
             h3 {
                 font-size: 22px;
@@ -70,6 +86,9 @@
                 transition: 0.5s ease;
                 color: $color-blue;
                 margin: unset;
+                &::after {
+                    background: url(/wp-content/themes/mhd/assets/images/button-arrow-blue.svg) !important;
+                }
             }
             a {
                 font-size: 16px;

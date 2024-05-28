@@ -25,12 +25,9 @@ function blog_categories($id = null)
                 }
             }
 
-            if (!empty($cat_array)) {
-                echo 'This entry was posted in ';
-            }
 
             foreach ($cat_array as $cat) {
-                echo $cat . ' ';
+                echo $cat . '';
             }
             ?>
         </div>

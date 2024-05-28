@@ -21,7 +21,7 @@ if ($padding_top && $padding_bottom) {
 }
 
 ?>
-<section class="section-wrap news-feed <?= $section_classes; ?>" <?= $id ?>>
+<section class="section-wrap news-feed white-bg<?= $section_classes; ?>" <?= $id ?>>
     <div class="news-feed__header-content-container container">
         <?= $content ?>
         <a class="button" href="/blog/">View All Articles</a>
@@ -100,7 +100,7 @@ if ($padding_top && $padding_bottom) {
             $args = array(
                 'post_type' => 'post',
                 'posts_per_page' => 4,
-                'category_name' => $category_slug
+                // 'category_name' => $category_slug
             );
 
             $articles_query = new WP_Query($args);

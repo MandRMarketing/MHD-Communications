@@ -13,7 +13,6 @@ input[type='submit'],
     font-size: 16px;
     cursor: pointer;
     padding: 10px 20px;
-    text-transform: uppercase;
     border: none;
     border-radius: none;
     box-shadow: none;
@@ -49,14 +48,18 @@ input[type='submit'],
 
 .button-arrow {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 700 !important;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 10px;
     color: white;
+    filter: opacity(1);
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        &::after {
+            filter: opacity(0.5);
+        }
     }
     &::after {
         content: '';

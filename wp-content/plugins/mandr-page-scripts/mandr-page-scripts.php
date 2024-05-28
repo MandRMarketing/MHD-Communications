@@ -20,31 +20,32 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (!defined('WPINC')) {
+    die;
 }
 
 /**
  * Currently plugin version.
  */
-define( 'M&R Page Scripts', '1.6' );
+define('M&R Page Scripts', '1.6');
 
-add_action( 'init', 'mandr_scripts_init');
+add_action('init', 'mandr_scripts_init');
 
-function mandr_scripts_init() {
+function mandr_scripts_init()
+{
 
     // Add the options page
-    if( function_exists('acf_add_options_page') ) {
+    if (function_exists('acf_add_options_page')) {
         acf_add_options_page(array(
-            'page_title' 	=> 'Site Scripts',
-            'menu_title'	=> 'Site Scripts',
-            'menu_slug' 	=> 'mandr-site-scripts',
-            'capability'	=> 'administrator',
+            'page_title'     => 'Site Scripts',
+            'menu_title'    => 'Site Scripts',
+            'menu_slug'     => 'mandr-site-scripts',
+            'capability'    => 'administrator',
         ));
     }
 
     // Add the meta
-    if( function_exists('acf_add_local_field_group') ){
+    if (function_exists('acf_add_local_field_group')) {
 
         acf_add_local_field_group(array(
             'key' => 'group_5caba88def137',
@@ -117,7 +118,7 @@ function mandr_scripts_init() {
             'active' => true,
             'description' => '',
         ));
-    
+
         acf_add_local_field_group(array(
             'key' => 'group_5cae226bdd0cd',
             'title' => 'Site Scripts',
@@ -163,8 +164,8 @@ function mandr_scripts_init() {
         "name": "M&amp;R Marketing Group",
         "legalName" : "M&amp;R Marketing Group LLC",
         "url": "https://www.mandr-group.com",
-        "logo": "https://www.mandr-group.com/wp-content/themes/mandr/images/mandr-logo.png",
-        "image": "https://www.mandr-group.com/wp-content/themes/mandr/images/mandr-logo.png",
+        "logo": "https://www.mandr-group.com/wp-content/themes/mandr/images/mandr-logo.svg",
+        "image": "https://www.mandr-group.com/wp-content/themes/mandr/images/mandr-logo.svg",
         "foundingDate": "2008",
         "founders": [
                 {
@@ -280,43 +281,45 @@ function mandr_scripts_init() {
 
     // remove the html filter on all ACF fields
     add_filter('acf/allow_unfiltered_html', 'mandr_scripts_acf_allow_unfiltered_html_all_fields');
-    function mandr_scripts_acf_allow_unfiltered_html_all_fields() {
+    function mandr_scripts_acf_allow_unfiltered_html_all_fields()
+    {
         return true;
     }
 
     // re-apply filter to non-code fields
     add_filter('acf/update_value', 'mandr_scripts_acf_disallow_unfiltered_html_non_code_field', 1, 3);
-    function mandr_scripts_acf_disallow_unfiltered_html_non_code_field($value, $post_id, $field){
-        if(!empty($value)){
-            if(
+    function mandr_scripts_acf_disallow_unfiltered_html_non_code_field($value, $post_id, $field)
+    {
+        if (!empty($value)) {
+            if (
                 $field['name'] !== 'mandr_headerscripts_code' &&
                 $field['name'] !== 'mandr_site_header_scripts_lo_p_code' &&
                 $field['name'] !== 'mandr_site_header_scripts_hi_p_code' &&
                 $field['name'] !== 'mandr_site_body_scripts_code' &&
                 $field['name'] !== 'mandr_site_footer_scripts_code'
             ) {
-                if(
+                if (
                     $field['type'] !== 'tab' &&
                     $field['type'] !== 'group' &&
                     $field['type'] !== 'repeater' &&
                     $field['type'] !== 'flexible_content' &&
                     $field['type'] !== 'clone'
-                ){
-                    if( !is_array($value) && !is_object($value) ) {
+                ) {
+                    if (!is_array($value) && !is_object($value)) {
                         $value = wp_kses_post($value);
-                    }elseif( is_array($value) ) {
-                        foreach($value as $key => $val) {
-                            if( !is_array($val) ) {
+                    } elseif (is_array($value)) {
+                        foreach ($value as $key => $val) {
+                            if (!is_array($val)) {
                                 $value[$key] = wp_kses_post($val);
-                            }else {
+                            } else {
                                 error_log('Nested array found when running wp_kses_post() in the mandr_acf_disallow_unfiltered_html_non_code_field hook.
-                                The field type was '.$field['type'].' and the field name was '.$field['name'].'.');
+                                The field type was ' . $field['type'] . ' and the field name was ' . $field['name'] . '.');
                                 error_log($value);
                             }
                         }
-                    }elseif( is_object($value) ) {
+                    } elseif (is_object($value)) {
                         error_log('Object found when running wp_kses_post() in the mandr_acf_disallow_unfiltered_html_non_code_field hook.
-                        The field type was '.$field['type'].' and the field name was '.$field['name'].'.');
+                        The field type was ' . $field['type'] . ' and the field name was ' . $field['name'] . '.');
                         error_log($value);
                     }
                 }
@@ -328,16 +331,18 @@ function mandr_scripts_init() {
 }
 
 // Early <head>
-add_action( 'wp_head', 'mandr_scripts_echo_into_head_early', 1);
-function mandr_scripts_echo_into_head_early() {
+add_action('wp_head', 'mandr_scripts_echo_into_head_early', 1);
+function mandr_scripts_echo_into_head_early()
+{
     remove_filter('acf_the_content', 'wpautop');
     echo get_field('mandr_site_header_scripts_hi_p_code', 'option');
     add_filter('acf_the_content', 'wpautop');
 }
 
 // Late <head>
-add_action( 'wp_head', 'mandr_scripts_echo_into_head_late', 100);
-function mandr_scripts_echo_into_head_late() {
+add_action('wp_head', 'mandr_scripts_echo_into_head_late', 100);
+function mandr_scripts_echo_into_head_late()
+{
     remove_filter('acf_the_content', 'wpautop');
     echo get_field('mandr_site_header_scripts_lo_p_code', 'option');
     echo get_field('mandr_headerscripts_code');
@@ -345,16 +350,18 @@ function mandr_scripts_echo_into_head_late() {
 }
 
 // After opening <body>
-add_action( 'wp_body_open', 'mandr_scripts_echo_into_body', 100);
-function mandr_scripts_echo_into_body() {
+add_action('wp_body_open', 'mandr_scripts_echo_into_body', 100);
+function mandr_scripts_echo_into_body()
+{
     remove_filter('acf_the_content', 'wpautop');
     echo get_field('mandr_site_body_scripts_code', 'option');
     add_filter('acf_the_content', 'wpautop');
 }
 
 // At footer
-add_action( 'wp_footer', 'mandr_scripts_echo_into_footer', 100);
-function mandr_scripts_echo_into_footer() {
+add_action('wp_footer', 'mandr_scripts_echo_into_footer', 100);
+function mandr_scripts_echo_into_footer()
+{
     remove_filter('acf_the_content', 'wpautop');
     echo get_field('mandr_site_footer_scripts_code', 'option');
     add_filter('acf_the_content', 'wpautop');

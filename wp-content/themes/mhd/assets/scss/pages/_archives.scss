@@ -1,12 +1,113 @@
 /* Numbered pagination */
+.blog-listing {
+    text-align: center;
+    display: flex;
+    gap: 50px;
+    @media (max-width: $first-break-max) {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    &__header {
+        &__time {
+        }
+        a {
+            text-decoration: none;
+        }
+        .categories {
+            a {
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &__title {
+            font-weight: 600 !important;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+    }
+
+    &__figure {
+        margin-top: 0;
+        max-height: 300px;
+        @media (max-width: $first-break-max) {
+            max-height: unset;
+        }
+        flex-basis: 40%;
+        img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    &__content {
+        flex-basis: 60%;
+        text-align: left;
+        // @media (min-width: $second-break) {
+        //     width: 65%;
+        // }
+        h2 {
+            color: $color-blue;
+            &::before {
+                content: unset;
+            }
+        }
+    }
+
+    &__button {
+        margin: 25px 0;
+        //     position: relative;
+        //     color: $white;
+        //     display: inline-block;
+        //     padding: 10px 25px;
+        //     @include gradient-darkblue;
+        //     border-radius: 30px;
+        //     border: none;
+        //     transition: 0.25s ease !important;
+        //     margin-top: 15px;
+        //     text-transform: capitalize !important;
+        //     min-width: 125px;
+        //     text-align: center;
+        //     &:hover {
+        //         margin-left: 50px;
+        //         &::before {
+        //         }
+        //     }
+        //     &:focus {
+        //         box-shadow: none;
+        //     }
+
+        //     &::before {
+        //         content: '';
+        //         background: $orange;
+        //         border-radius: 30px;
+        //         position: absolute;
+        //         top: 0;
+        //         left: -10px;
+        //         height: 100%;
+        //         width: 100%;
+        //         z-index: -1;
+        //     }
+    }
+
+    // & + & {
+    //     margin-top: $spacing-sm;
+    //     padding-top: $spacing-sm;
+    // }
+}
 .blog-pagination {
+    padding: 50px 0;
     &__navigation {
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
     }
-    
+
     ul {
         position: relative;
         float: right;
@@ -28,25 +129,51 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 36px;
-            height: 36px;
+            width: 20px;
+            height: 20px;
             padding: 4px 8px;
             color: #000;
             text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
         }
 
-        span.current {
-            color: #fff;
-            background: #000;
-        }
-        
-        a {
+        a:not(.next, .prev) {
             &:hover,
             &:focus,
             &:active,
             &.active {
                 color: #fff;
-                background: #000;
+                border-radius: 50%;
+                position: relative;
+                &::before {
+                    content: '';
+                    background: $color-blue;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    left: 5px;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                }
+            }
+        }
+
+        span.current {
+            color: #fff;
+            border-radius: 50%;
+            position: relative;
+            &::before {
+                content: '';
+                background: $color-blue;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                left: 5px;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
             }
         }
     }
@@ -54,11 +181,7 @@
 
 .blog-listing {
     text-align: center;
-
-    &__figure {
-        margin-top: $spacing-xs;
-        text-align: center;
-    }
+    padding: 25px 0;
 
     &__button {
         margin-top: $spacing-xs;
@@ -66,7 +189,7 @@
     }
 
     & + & {
-        border-top: 1px solid #eee;
+        border-top: 1px solid $color-lightblue;
         margin-top: $spacing-sm;
         padding-top: $spacing-sm;
     }

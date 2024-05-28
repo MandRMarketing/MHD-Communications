@@ -30,7 +30,7 @@ if ($apply_text_color && $section_text_color) {
 
 if ($columns) :
 ?>
-    <section <?= $section_id; ?> class="section-wrap <?= $section_classes; ?>" style="<?= $section_style; ?>">
+    <section id="<?= $section_id; ?>" class="section-wrap <?= $section_classes; ?>" style="<?= $section_style; ?>">
         <div class="columns__container container">
             <div class="columns__content">
                 <?php
@@ -62,7 +62,7 @@ if ($columns) :
                         <?php
                         // Iterate through loop and dynamically create columns
                         for ($i = 0; $i < $column_count; $i++) :
-                            $index = $i + 1;                            
+                            $index = $i + 1;
 
                             // If variable
                             if ($column_count === 7 & $i > 1) {

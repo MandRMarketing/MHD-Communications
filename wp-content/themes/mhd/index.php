@@ -20,10 +20,11 @@ get_header();
 					$featured_query->the_post();
 					$title = get_the_title();
 					$link = get_the_permalink();
-					$content = get_the_content();
-					$content = wp_strip_all_tags($content);
+					$date = get_the_date();
+					$content = get_the_excerpt();
+					$categories = get_the_category();
 					$image = get_the_post_thumbnail();
-					$max_length = 400; // maximum length of the truncated string
+					$max_length = 150; // maximum length of the truncated string
 					$ellipsis = '...'; // ellipsis to be added
 
 					if (strlen($content) > $max_length) {
@@ -31,17 +32,32 @@ get_header();
 					}
 			?>
 					<div class="featured-blog">
-						<div class="featured-blog__content">
-							<h5>Featured News Article</h5>
-							<h1><?= $title ?></h1>
-							<div class="featured-blog__content__excerpt">
-								<p><?= $content ?></p>
-							</div>
-							<a class="blog-listing__button button btn" href="<?= $link; ?>">Read Article</a>
-						</div>
 						<div class="featured-blog__image">
 							<?= $image ?>
 						</div>
+						<div class="featured-blog__content">
+							<h5>Featured Article</h5>
+							<h3><?= $title ?></h3>
+							<time><?= $date ?></time>
+							<div class="categories">
+								<?php
+								if ($categories) :
+									$category_names = array();
+									foreach ($categories as $category) :
+										$category_names[] = '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
+									endforeach;
+									//this prints all the categories with comma separators
+									echo implode(' | ', $category_names);
+								endif;
+								?>
+							</div>
+
+							<div class="featured-blog__content__excerpt">
+								<p><?= $content ?></p>
+							</div>
+							<a class="blog-listing__button button-arrow" href="<?= $link; ?>">Read Article</a>
+						</div>
+
 					</div>
 			<?php
 				endwhile;

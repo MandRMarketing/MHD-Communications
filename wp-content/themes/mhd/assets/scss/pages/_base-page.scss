@@ -1,5 +1,7 @@
 #primary-wrap {
     position: relative;
     overflow: hidden;
-    margin-top: 0 !important;
+    @media (min-width: $first-break) {
+        margin-top: 0 !important;
+    }
 }

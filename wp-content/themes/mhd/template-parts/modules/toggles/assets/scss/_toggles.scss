@@ -21,13 +21,13 @@ $color-text: #fff;
             width: 100%;
             height: auto;
             border: none;
-            padding: 10px 60px 10px 24px;
+            padding: 10px 60px 10px 0px;
             text-align: left;
 
             color: white;
             text-decoration: none;
             font-weight: bold;
-            text-transform: uppercase;
+            text-transform: capitalize;
 
             &:hover,
             &:focus {
@@ -60,6 +60,7 @@ $color-text: #fff;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+                    font-size: 50px;
                 }
             }
         }
@@ -71,6 +72,9 @@ $color-text: #fff;
             strong,
             em {
                 color: $color-offwhite;
+            }
+            a {
+                color: white;
             }
         }
 

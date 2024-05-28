@@ -25,8 +25,9 @@ ul:not([class]) {
     li:not([class]) {
         position: relative;
         list-style-type: none;
-        text-indent: -3px;
+        //text-indent: -3px;
         padding-left: 20px;
+        margin-bottom: 5px;
 
         &:before {
             content: '';

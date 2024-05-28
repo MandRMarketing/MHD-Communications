@@ -7,7 +7,7 @@ $primary_navigation = wp_get_nav_menu_items($menu);
         <div class="mobile-header__inner">
             <p class="mobile-header__logo">
                 <a class="mobile-header__logo__link" href="<?= bloginfo('url'); ?>/">
-                    <img class="mobile-header__logo__image" src="<?= bloginfo('template_url'); ?>/assets/images/logo.png" alt="<?= bloginfo('name'); ?> logo" />
+                    <img class="mobile-header__logo__image" src="<?= bloginfo('template_url'); ?>/assets/images/logo.svg" alt="<?= bloginfo('name'); ?> logo" />
                 </a>
                 <span class="sr-only"><?= bloginfo('name'); ?></span>
             </p>
@@ -146,7 +146,8 @@ function mobile_nav_extend_nav_menu_items($nav)
  * @param Object $item The menu item object
  * 
  */
-function mobile_nav_build_classes($initial_class, $item) {
+function mobile_nav_build_classes($initial_class, $item)
+{
     //echo var_export($item);
     $hasSubMenu = false;
 
@@ -157,10 +158,10 @@ function mobile_nav_build_classes($initial_class, $item) {
     $isCurrentPage = $item->current_page;
 
     $class = $initial_class;
-    if($hasSubMenu) {
+    if ($hasSubMenu) {
         $class .= ' has-submenu';
     }
-    if($isCurrentPage) {
+    if ($isCurrentPage) {
         $class .= ' current-menu-item';
     }
 
