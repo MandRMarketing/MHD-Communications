@@ -1,5 +1,7 @@
 .fullwidth-background-section {
     overflow: hidden;
+    position: relative;
+    z-index: 0;
 
     video {
         object-fit: cover;
@@ -16,53 +18,106 @@
         text-align: center;
         display: flex;
         align-items: center;
-        justify-content: center;
-        height: 680px;
-        @media screen and (max-width: $second-break-max) {
-            height: 350px;
-            //margin-top: 150px;
+        justify-content: flex-start;
+        @media (min-width: 1921px) {
+            height: 750px;
         }
-        @media screen and (max-width: $mobile-break-max) {
-            height: 350px;
-            //margin-top: 150px;
+        height: 667px;
+        @media (max-width: $first-break-max) {
+            height: 568px;
         }
+        @media (max-width: $second-break-max) {
+            flex-direction: column;
+            height: unset;
+        }
+        &::after {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: $color-blue;
+            opacity: 0.65;
+        }
+
+        // @media (max-width: $first-break-max) {
+        //     height: 330px;
+        // }
 
         .video-layout-full {
             position: absolute;
-            height: 680px;
+            min-height: 443px;
             overflow: hidden;
             z-index: 1;
             width: 100%;
 
-            @media screen and (max-width: $second-break-max) {
-                height: 350px;
-            }
+            //   @media screen and (max-width: $mobile-small) {
+            //     height: 500px;
+            //   }
 
-            .video-thumbnail {
-                height: 100%;
-                width: 100%;
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                }
+            @media (max-width: $second-break-max) {
+                position: unset;
+                height: unset;
             }
 
             #background-video {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                position: unset;
+                transform: unset;
+                position: relative;
+                padding-top: 56.25%;
+                min-height: 443px;
+                top: 0;
+                left: 0;
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
                 pointer-events: none;
+                @media (max-width: $mobile-break-max) {
+                    position: unset;
+                    transform: unset;
+                    position: relative;
+                    padding-top: 56.25%;
+                    top: 0;
+                    left: 0;
+                    iframe {
+                        position: absolute;
+                        top: 0;
+                        left: -600px;
+                        width: revert-layer !important;
+                        height: 100%;
+                    }
+                }
+                @media (max-width: $mobile-med-max) {
+                    iframe {
+                        left: -700px;
+                    }
+                }
+                @media (max-width: $mobile-small-max) {
+                    iframe {
+                        left: -750px;
+                    }
+                }
+                @media (max-width: $mobile-tiny-max) {
+                    iframe {
+                        left: -800px;
+                    }
+                }
             }
         }
 
         .video_content {
             position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
             z-index: 2;
             color: white;
             padding-top: 170px;
-            @media screen and (max-width: $second-break-max) {
+            @media screen and (max-width: $first-break-max) {
                 padding: 20px;
             }
             h1 {

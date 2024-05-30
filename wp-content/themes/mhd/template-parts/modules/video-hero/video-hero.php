@@ -16,46 +16,37 @@ if (!empty($section_id)) {
     <div class="video_wrapper">
         <div class="video-layout-full">
             <span class="visually-hidden description"><?= $video_description ?></span>
-            <?php if ($youtube_or_vimeo) : ?>
-                <div class="video">
-                    <?php
-                    $video_id = get_sub_field('vimeo_video_id');
-                    $video_preview_url = 'https://vimeo.com/' . $video_id;
+            <div class="video">
+                <?php
+                $video_id = get_sub_field('vimeo_video_id');
+                $video_preview_url = 'https://vimeo.com/' . $video_id;
 
-                    //$video_url = '//player.vimeo.com/video/' . $video_id;
-                    ?>
-                    <div id="background-video"></div>
-                    <script>
-                        var options02 = {
-                            url: '<?= $video_preview_url ?>',
-                            width: 1920,
-                            controls: false,
-                            muted: true,
-                            quality: '720p'
-                        };
+                //$video_url = '//player.vimeo.com/video/' . $video_id;
+                ?>
+                <div id="background-video"></div>
+                <script>
+                    var options02 = {
+                        url: '<?= $video_preview_url ?>',
+                        width: 1920,
+                        controls: false,
+                        muted: true,
+                        quality: '720p'
+                    };
 
-                        window['videoPlayer'] = new Vimeo.Player('background-video', options02);
+                    window['videoPlayer'] = new Vimeo.Player('background-video', options02);
 
-                        window['videoPlayer'].setVolume(0);
-                        window['videoPlayer'].play();
-                        window['videoPlayer'].setLoop(true);
-                        window['videoPlayer'].setAutopause(false);
-                    </script>
-                </div>
-            <?php else : ?>
-                <div class="video-thumbnail">
-                    <?php
-                    $video_thumbnail = get_sub_field('video_thumbnail');
-
-                    //$video_url = '//player.vimeo.com/video/' . $video_id;
-                    ?>
-                    <img src="<?= $video_thumbnail['url'] ?>" alt="<?= $video_thumbnail['alt'] ?>" />
-                </div>
-            <?php endif; ?>
+                    window['videoPlayer'].setVolume(0);
+                    window['videoPlayer'].play();
+                    window['videoPlayer'].setLoop(true);
+                    window['videoPlayer'].setAutopause(false);
+                </script>
+            </div>
         </div>
 
-        <div class="video_content">
-            <?php echo $content_video ?>
+        <div class="video_content container">
+            <div class="content-wrap">
+                <?php echo $content_video ?>
+            </div>
         </div>
     </div>
 </section>
