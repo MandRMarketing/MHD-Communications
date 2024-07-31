@@ -87,10 +87,25 @@ Site Footer
                 }
             }
             &__left {
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
             &__center {
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
             &__right {
+                .button-arrow {
+                    font-weight: 500 !important;
+                }
             }
         }
     }

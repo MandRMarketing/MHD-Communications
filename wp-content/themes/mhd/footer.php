@@ -20,10 +20,9 @@
 		<div class="footer__primary__container container">
 			<div class="footer__primary__container__left">
 				<h3>Contact</h3>
-				<a href="tel:813-948-0202">813-948-0202</a>
-				<a href="tel:561-363-2407">561-363-2407</a>
-				<a href="tel:833-643-4636">833-MHD-INFO</a>
-				<a href="tel:813-699-5001">813-699-5001</a>
+				<a href="tel:833-643-4636">P: 833-MHD-INFO</a>
+				<a href="tel:833-643-4636">P: 833-643-4636</a>
+				<a href="tel:813-699-5001">F: 813-699-5001</a>
 				<a href="mailto:info@mhdit.com">info@mhdit.com</a>
 				<a style="margin-top: 35px;" class="button-arrow" target="_blank" href="https://mhdit.hostedrmm.com:8040/ ">Initiate Remote Support</a>
 				<?php get_template_part('template-parts/social-links'); ?>
@@ -31,6 +30,7 @@
 			<div class="footer__primary__container__center">
 				<h3>Locations</h3>
 				<a target="_blank" href="https://maps.app.goo.gl/n9teBxqS9Yjbm7he8">5808 Breckenridge Pkwy<br />Suite G<br />Tampa, FL 33610</a>
+				<br />
 				<a target="_blank" href="https://maps.app.goo.gl/v4eGEQEi44RLkXYy9">1750 N. Florida Mango Road<br />Suite 413<br />West Palm Beach, FL 33409</a>
 			</div>
 			<div class="footer__primary__container__right">
