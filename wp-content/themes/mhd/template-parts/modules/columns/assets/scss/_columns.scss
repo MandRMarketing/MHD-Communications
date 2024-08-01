@@ -1,6 +1,16 @@
 .columns {
     position: relative;
 
+    &.flex {
+        .columns__row {
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: $mobile-break-max) {
+                flex-direction: column;
+            }
+        }
+    }
+
     &__variable {
         .columns {
             &__wrap {
