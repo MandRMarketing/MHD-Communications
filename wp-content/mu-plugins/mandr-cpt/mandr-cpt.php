@@ -522,5 +522,5 @@ function mandr_create_faqs_cpt()
 		//'can_export'          => true, // (boolean) (optional) Can this post_type be exported.
 	);
 
-	register_post_type('mandr_' . $lc_singular, $args);
+	//register_post_type('mandr_' . $lc_singular, $args);
 }

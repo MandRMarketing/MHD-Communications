@@ -103,7 +103,7 @@ get_header();
 				else :
 				?>
 					<div class="no-results">
-						<p>We're sorry, but there are currently no posts in this area.</p>
+						<p>Sorry, there are currently no blog articles posted. Check back soon!</p><br />
 					</div>
 				<?php
 				endif;
