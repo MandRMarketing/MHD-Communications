@@ -48,7 +48,7 @@ if ($padding_top && $padding_bottom) {
             wp_reset_postdata();
         else :
             ?>
-            <p style="display: block; text-align: center;">There are no articles for this topic yet. Stay tuned!</p>
+            <p style="display: block; text-align: center;">There are no jobs posted as of right now. Stay tuned!</p>
         <?php
         endif;
         ?>

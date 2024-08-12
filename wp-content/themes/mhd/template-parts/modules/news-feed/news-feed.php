@@ -83,7 +83,7 @@ if ($padding_top && $padding_bottom) {
                 wp_reset_postdata();
             else :
                 ?>
-                <p style="display: block; text-align: center;">There are no articles for this topic yet. Stay tuned!</p>
+                <p style="display: block; text-align: center;">There are no blog articles posted yet. Stay tuned!</p>
             <?php
             endif;
             ?>
@@ -142,14 +142,11 @@ if ($padding_top && $padding_bottom) {
                         </div>
                     <?php endif; ?>
 
-                <?php
+            <?php
                 endwhile;
                 // Reset the post data
                 wp_reset_postdata();
-            else :
-                ?>
-                <p style="display: block; text-align: center;">There are no articles for this topic yet. Stay tuned!</p>
-            <?php
+
             endif;
             ?>
         </div>
