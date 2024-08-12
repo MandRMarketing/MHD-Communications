@@ -51,16 +51,24 @@ if (have_rows('team')) :
                     ];
                 ?>
                     <div class="team__member" id="<?= sanitize_title($name); ?>">
-                        <picture class="team__member__picture">
-                            <img class="team__member__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
-                        </picture>
+                        <?php if ($image): ?>
+                            <picture class="team__member__picture">
+                                <img class="team__member__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
+                            </picture>
+                        <?php endif; ?>
                         <div class="team__member__heading">
-                            <h2 class="team__member__heading__name"><?= $name; ?></h2>
-                            <h3 class="team__member__heading__title"><?= $title; ?></h3>
-                            <button class="team__member__popup button--clear button-arrow" data-id="team-<?= sanitize_title($name); ?>">
-                                Read Bio
-                                <span class="sr-only">Read Bio</span>
-                            </button>
+                            <?php if ($name): ?>
+                                <h2 class="team__member__heading__name"><?= $name; ?></h2>
+                            <?php endif; ?>
+                            <?php if ($title): ?>
+                                <h3 class="team__member__heading__title"><?= $title; ?></h3>
+                            <?php endif; ?>
+                            <?php if ($bio): ?>
+                                <button class="team__member__popup button--clear button-arrow" data-id="team-<?= sanitize_title($name); ?>">
+                                    Read Bio
+                                    <span class="sr-only">Read Bio</span>
+                                </button>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endwhile; ?>
