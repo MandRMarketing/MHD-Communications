@@ -31,14 +31,16 @@ if (have_rows('team')) :
                     $email = get_sub_field('email');
                     $bio = get_sub_field('bio');
 
-                    // make sure it's in array format
-                    if (!is_array($image)) {
-                        $image = acf_get_attachment($image);
-                    }
+                    if ($image) {
+                        // make sure it's in array format
+                        if (!is_array($image)) {
+                            $image = acf_get_attachment($image);
+                        }
 
-                    // resize if needed
-                    if ((int)$image['width'] !== 400 || (int)$image['height'] !== 400) {
-                        $image['url'] = aq_resize($image['url'], 400, 400, true, true, true);
+                        // resize if needed
+                        if ((int)$image['width'] !== 400 || (int)$image['height'] !== 400) {
+                            $image['url'] = aq_resize($image['url'], 400, 400, true, true, true);
+                        }
                     }
 
                     $team_array['team-' . sanitize_title($name)] = [
@@ -47,15 +49,13 @@ if (have_rows('team')) :
                         'title' => $title,
                         'image' => $image['url'],
                         'image_alt' => $image['alt'],
-                        'bio' => $bio
+                        'bio' => $bio ? $bio : ''
                     ];
                 ?>
                     <div class="team__member" id="<?= sanitize_title($name); ?>">
-                        <?php if ($image): ?>
-                            <picture class="team__member__picture">
-                                <img class="team__member__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
-                            </picture>
-                        <?php endif; ?>
+                        <picture class="team__member__picture">
+                            <img class="team__member__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
+                        </picture>
                         <div class="team__member__heading">
                             <?php if ($name): ?>
                                 <h2 class="team__member__heading__name"><?= $name; ?></h2>
