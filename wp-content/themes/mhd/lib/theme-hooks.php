@@ -6,7 +6,8 @@
 
 /* Hide styling things from editors */
 add_action('admin_head', 'mandr_hide_acf_styling_fields');
-function mandr_hide_acf_styling_fields() {
+function mandr_hide_acf_styling_fields()
+{
 	if (!current_user_can('administrator')) : ?>
 		<style>
 			.acf-field[data-name="section_class"],
@@ -73,7 +74,8 @@ remove_action('wp_head', 'wp_generator');
  */
 // Not Home Body Class
 add_filter('body_class', 'sp_body_class');
-function sp_body_class($classes) {
+function sp_body_class($classes)
+{
 	if (!is_front_page()) {
 		$classes[] = 'not-home';
 	}
@@ -85,7 +87,8 @@ function sp_body_class($classes) {
  * Page Slug Body Class
  */
 add_filter('body_class', 'add_slug_body_class');
-function add_slug_body_class($classes) {
+function add_slug_body_class($classes)
+{
 	global $post;
 	if (isset($post)) {
 		$classes[] = $post->post_type . '-' . $post->post_name;
@@ -98,7 +101,8 @@ function add_slug_body_class($classes) {
  */
 add_filter('post_class', 'category_id_class');
 add_filter('body_class', 'category_id_class');
-function category_id_class($classes) {
+function category_id_class($classes)
+{
 	global $post;
 	if (isset($post)) {
 		foreach ((get_the_category($post->ID)) as $category) {
@@ -113,7 +117,8 @@ function category_id_class($classes) {
  */
 add_filter('next_post_link', 'posts_link_class');
 add_filter('previous_post_link', 'posts_link_class');
-function posts_link_class($format) {
+function posts_link_class($format)
+{
 	$format = str_replace('href=', 'class="button" href=', $format);
 	return $format;
 }
@@ -125,7 +130,8 @@ add_filter('excerpt_length', function () {
 	return 24;
 });
 add_filter('excerpt_more', 'custom_excerpt_more');
-function custom_excerpt_more($more) {
+function custom_excerpt_more($more)
+{
 	return '&hellip;';
 }
 
@@ -134,7 +140,8 @@ function custom_excerpt_more($more) {
  */
 add_filter('the_content', 'addMagnificTitle_replace', 99);
 add_filter('acf_the_content', 'addMagnificTitle_replace', 99);
-function addMagnificTitle_replace($content) {
+function addMagnificTitle_replace($content)
+{
 	global $post;
 	if (isset($post)) {
 		// [0] <a xyz href="...(.bmp|.gif|.jpg|.jpeg|.png)" zyx>yx</a> --> <a href="...(.bmp|.gif|.jpg|.jpeg|.png)" xyz zyx>yx</a>
@@ -160,7 +167,8 @@ function addMagnificTitle_replace($content) {
 // Remove Empty Paragraphs
 add_filter('the_content', 'shortcode_empty_paragraph_fix');
 add_filter('acf_the_content', 'shortcode_empty_paragraph_fix');
-function shortcode_empty_paragraph_fix($content) {
+function shortcode_empty_paragraph_fix($content)
+{
 	$array = array(
 		'<p>[' => '[',
 		']</p>' => ']',
@@ -177,7 +185,8 @@ function shortcode_empty_paragraph_fix($content) {
  */
 add_filter('the_content', 'filter_ptags_on_images', 99);
 add_filter('acf_the_content', 'filter_ptags_on_images', 99);
-function filter_ptags_on_images($content) {
+function filter_ptags_on_images($content)
+{
 	return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '\1', $content);
 }
 
@@ -191,13 +200,15 @@ function filter_ptags_on_images($content) {
  * Thanks to https://stackoverflow.com/a/12586404
  */
 add_filter('wp_terms_checklist_args', 'taxonomy_checklist_checked_ontop_filter');
-function taxonomy_checklist_checked_ontop_filter($args) {
+function taxonomy_checklist_checked_ontop_filter($args)
+{
 	$args['checked_ontop'] = false;
 	return $args;
 }
 // Gallery Default settings
 add_filter('media_view_settings', 'mandr_gallery_defaults');
-function mandr_gallery_defaults($settings) {
+function mandr_gallery_defaults($settings)
+{
 	$settings['galleryDefaults']['link'] = 'file';
 	$settings['galleryDefaults']['columns'] = 4;
 	$settings['galleryDefaults']['size'] = 'thumbnail';
@@ -210,7 +221,8 @@ function mandr_gallery_defaults($settings) {
  */
 //add_filter('the_seo_framework_custom_field_description', 'generate_acf_description_meta', 10, 2);
 //add_filter('the_seo_framework_fetched_description_excerpt', 'generate_acf_description_meta', 10, 2);
-function generate_acf_description_meta($desc, $args) {
+function generate_acf_description_meta($desc, $args)
+{
 	// If description already set, just return that
 	if ($desc !== '') {
 		return $desc;
@@ -226,7 +238,8 @@ function generate_acf_description_meta($desc, $args) {
 
 // Add shortcode to SEO Framework descriptions
 //add_filter( 'the_seo_framework_custom_field_description', 'enable_seo_framework_shortcode', 10, 2 );
-function enable_seo_framework_shortcode($description, $args) {
+function enable_seo_framework_shortcode($description, $args)
+{
 	return do_shortcode($description);
 }
 
@@ -247,7 +260,8 @@ add_filter('acf/settings/google_api_key', function () {
  * This is particularly useful when you're running a Flexible SSL frontend like Cloudflare
  */
 add_filter('wp_calculate_image_srcset', 'ssl_srcset');
-function ssl_srcset($sources) {
+function ssl_srcset($sources)
+{
 	if (is_ssl()) {
 		foreach ($sources as &$source) {
 			$source['url'] = set_url_scheme($source['url'], 'https');
@@ -263,7 +277,8 @@ function ssl_srcset($sources) {
  *		//http://wordpress.stackexchange.com/questions/185577/disable-emojicons-introduced-with-wp-4-2
  */
 add_action('init', 'disable_wp_emojicons');
-function disable_wp_emojicons() {
+function disable_wp_emojicons()
+{
 	// all actions related to emojis
 	remove_action('admin_print_styles', 'print_emoji_styles');
 	remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -276,7 +291,8 @@ function disable_wp_emojicons() {
 	// filter to remove TinyMCE emojis
 	add_filter('tiny_mce_plugins', 'disable_emojicons_tinymce');
 }
-function disable_emojicons_tinymce($plugins) {
+function disable_emojicons_tinymce($plugins)
+{
 	if (is_array($plugins)) {
 		return array_diff($plugins, array('wpemoji'));
 	} else {
@@ -307,7 +323,8 @@ update_option('image_default_link_type', 'none');
  * Restricts capabilities to only 'Menu' access
  */
 add_action('admin_init', 'get_editor_role');
-function get_editor_role() {
+function get_editor_role()
+{
 	/* Get 'Editor' role and add capabilities */
 	$roleObject = get_role('editor');
 
@@ -316,7 +333,8 @@ function get_editor_role() {
 	}
 }
 add_action('admin_menu', 'mandr_editor_capability_access');
-function mandr_editor_capability_access() {
+function mandr_editor_capability_access()
+{
 	/**
 	 * Remove menu access if user does not have ability to create users
 	 * i.e. not an Administrator
@@ -327,7 +345,7 @@ function mandr_editor_capability_access() {
 	// echo '<pre>'; print_r( $menu ); echo '</pre>'; // TOP LEVEL MENUS
 	// echo '<pre>'; print_r( $submenu ); echo '</pre>'; // SUBMENUS
 
-    remove_menu_page('edit-comments.php');
+	remove_menu_page('edit-comments.php');
 
 	if (!current_user_can('create_users')) {
 
@@ -359,7 +377,8 @@ function mandr_editor_capability_access() {
 }
 // Adjust what shows up on the New part of Admin Bar
 add_action('admin_bar_menu', 'mandr_admin_bar_editing', 999);
-function mandr_admin_bar_editing() {
+function mandr_admin_bar_editing()
+{
 	global $wp_admin_bar;
 	//$wp_admin_bar->remove_node( 'new-post' );
 }
@@ -368,7 +387,8 @@ function mandr_admin_bar_editing() {
  * WP dashboard menu ids to removeChild(about, wporg, documentation, support-forums, feedback)
  */
 add_action('wp_before_admin_bar_render', 'mytheme_admin_bar_render');
-function mytheme_admin_bar_render() {
+function mytheme_admin_bar_render()
+{
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('about');
 	$wp_admin_bar->remove_menu('wporg');
@@ -385,7 +405,8 @@ function mytheme_admin_bar_render() {
 
 // Disable support for comments and trackbacks in post types
 add_action('admin_init', 'df_disable_comments_post_types_support');
-function df_disable_comments_post_types_support() {
+function df_disable_comments_post_types_support()
+{
 	$post_types = get_post_types();
 	foreach ($post_types as $post_type) {
 		if (post_type_supports($post_type, 'comments')) {
@@ -397,12 +418,14 @@ function df_disable_comments_post_types_support() {
 // Close comments on the front-end
 add_filter('comments_open', 'df_disable_comments_status', 20, 2);
 add_filter('pings_open', 'df_disable_comments_status', 20, 2);
-function df_disable_comments_status() {
+function df_disable_comments_status()
+{
 	return false;
 }
 // Redirect any user trying to access comments page
 add_action('admin_init', 'df_disable_comments_admin_menu_redirect');
-function df_disable_comments_admin_menu_redirect() {
+function df_disable_comments_admin_menu_redirect()
+{
 	global $pagenow;
 	if ($pagenow === 'edit-comments.php') {
 		wp_redirect(home_url());
@@ -426,7 +449,8 @@ add_filter('widget_text', 'do_shortcode');
  * Remove 'Preview Changes' button
  */
 add_action('admin_head', 'removePreviewButtonFromPages');
-function removePreviewButtonFromPages() {
+function removePreviewButtonFromPages()
+{
 	// $pt = get_current_screen()->post_type;
 	// if ( $pt != 'post') {
 	echo '<style>
@@ -442,12 +466,13 @@ function removePreviewButtonFromPages() {
  * Conditionally load ACF flex modules
  */
 add_filter('acf/load_field/key=field_5e0685a213305', 'remove_layouts', 99);
-function remove_layouts($field) {
+function remove_layouts($field)
+{
 	global $post;
 	$layouts = $field['layouts'];
 
 	// Only proceed if this is a page
-	if ($post->post_type !== 'page') {
+	if ($post && $post->post_type !== 'page') {
 		return $field;
 	}
 
@@ -464,7 +489,8 @@ function remove_layouts($field) {
  * Remove flex layout from page layouts based on 
  * -- Broke loop out into own function so above function can handle conditional logic explicitly
  */
-function remove_flex_module_conditionally($field, $layouts, $search) {
+function remove_flex_module_conditionally($field, $layouts, $search)
+{
 	$field['layouts'] = array();
 
 	// Had to modify the loop to match how class-acf-field-flexible-content builds array
@@ -483,7 +509,8 @@ function remove_flex_module_conditionally($field, $layouts, $search) {
  * Add custom fields to Relevanssi excerpt core
  */
 // add_filter('relevanssi_excerpt_content', 'fpd_search_custom_fields_to_excerpts', 10, 3);
-function fpd_search_custom_fields_to_excerpts($content, $post, $query) {
+function fpd_search_custom_fields_to_excerpts($content, $post, $query)
+{
 
 	// grab advanced layout fields
 	$fields = get_field('page_layouts', $post->ID);
