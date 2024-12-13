@@ -17,7 +17,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <?php
-    blog_audience_parameter();
+    // blog_audience_parameter();
     wp_head();
     ?>
 

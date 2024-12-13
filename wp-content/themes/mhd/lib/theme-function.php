@@ -3,7 +3,8 @@
 /**
  * Check image if array, check width/height, and return url
  */
-function acf_image_resize_get_url($acf_image, $width, $height) {
+function acf_image_resize_get_url($acf_image, $width, $height)
+{
 
 	if (!is_array($acf_image)) {
 		$acf_image = acf_get_attachment($acf_image);
@@ -16,7 +17,8 @@ function acf_image_resize_get_url($acf_image, $width, $height) {
 	}
 }
 
-function acf_image_get_alt($acf_image) {
+function acf_image_get_alt($acf_image)
+{
 	if (!is_array($acf_image)) {
 		$acf_image = acf_get_attachment($acf_image);
 	}
@@ -35,7 +37,8 @@ function acf_image_get_alt($acf_image) {
  * @param string $file Filepath string for SVG
  * @return object
  */
-function import_SVG($file) {
+function import_SVG($file)
+{
 	if (!$file) {
 		return false;
 	}
@@ -57,7 +60,8 @@ function import_SVG($file) {
  * @param Function $callback Pass an optional callback function
  * @param Array $args Pass an array of arguments to include in callback
  */
-function process_csv_file($file, $callback = null, $args = null) {
+function process_csv_file($file, $callback = null, $args = null)
+{
 	$row = 0;
 	$cx = 0;
 
@@ -76,7 +80,8 @@ function process_csv_file($file, $callback = null, $args = null) {
 /**
  * Return the variable width custom field as column class name
  */
-function module_get_variable_column_classname($width) {
+function module_get_variable_column_classname($width)
+{
 	switch ($width):
 		case '1/3':
 			$width = 'one-third';
@@ -107,7 +112,8 @@ function module_get_variable_column_classname($width) {
 /**
  * Dynamically generate standard-layout column width classes
  */
-function module_get_column_width($column, $total, $row) {
+function module_get_column_width($column, $total, $row)
+{
 	$size = '';
 	switch ($total):
 		case 2:
@@ -156,7 +162,8 @@ function module_get_column_width($column, $total, $row) {
 }
 
 /* localize nav variable */
-function localize_fullpage_nav_variable() {
+function localize_fullpage_nav_variable()
+{
 
 	$nav_id = get_field('fullpage_navigation');
 	$returnArray = array();
@@ -173,7 +180,8 @@ function localize_fullpage_nav_variable() {
 	return $returnArray;
 }
 
-function echo_slugs_from_object_array($arr) {
+function echo_slugs_from_object_array($arr)
+{
 	if (!empty($arr)) {
 		foreach ($arr as $trm) :
 			echo $trm->slug . ',';
@@ -181,7 +189,8 @@ function echo_slugs_from_object_array($arr) {
 	}
 }
 
-function get_section_style() {
+function get_section_style()
+{
 
 	$section_bg = get_sub_field('section_background');
 	$apply_text_color = get_sub_field('apply_text_color');
@@ -207,20 +216,24 @@ function get_section_style() {
 	return $section_style;
 }
 
-function email_link($email) {
+function email_link($email)
+{
 	$return = "<a href='mailto:" . antispambot($email) . "' target='_blank' rel='noopener noreferrer'>" . antispambot($email) . "</a>";
 	return $return;
 }
-function phone_tel_number($phone) {
+function phone_tel_number($phone)
+{
 	return preg_replace('/\D+/', '', $phone);
 }
-function phone_link($phone) {
+function phone_link($phone)
+{
 	$return = "<a href='tel:" . phone_tel_number($phone) . "' target='_blank' rel='noopener noreferrer'>" . $phone . "</a>";
 	return $return;
 }
 
 /* localize script for google map */
-function localize_google_map_data() {
+function localize_google_map_data()
+{
 
 	$returnArray = array();
 	if (have_rows('map_locations', 'option')) {
@@ -247,7 +260,8 @@ function localize_google_map_data() {
 }
 
 /* localize script for advanced locations */
-function localize_adv_locations_data() {
+function localize_adv_locations_data()
+{
 	$query = new WP_Query(array(
 		'post_type' => 'mandr_location',
 		'status' => 'publish',
@@ -300,7 +314,8 @@ function localize_adv_locations_data() {
 }
 
 //acf remove autop
-function the_field_without_wpautop($field_name) {
+function the_field_without_wpautop($field_name)
+{
 
 	remove_filter('acf_the_content', 'wpautop');
 
@@ -310,7 +325,8 @@ function the_field_without_wpautop($field_name) {
 }
 
 /* Display Vimeo Videos */
-function print_vimeo_list() {
+function print_vimeo_list()
+{
 
 	ob_start();
 
@@ -375,7 +391,8 @@ function print_vimeo_list() {
 }
 
 /* Single Vimeo Video */
-function print_vimeo_video() {
+function print_vimeo_video()
+{
 
 	$output = '';
 
@@ -409,7 +426,8 @@ function print_vimeo_video() {
 }
 
 // Take any standard youtube link and return the video ID
-function youtube_video_id($url) {
+function youtube_video_id($url)
+{
 	// Youtube Video id is 11 characters in length
 	$video_pattern = '~(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@#?&%=+\/\$_.-]*~i';
 
@@ -417,7 +435,8 @@ function youtube_video_id($url) {
 }
 
 // Curl helper function
-function curl_get($url) {
+function curl_get($url)
+{
 	$curl = curl_init($url);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($curl, CURLOPT_TIMEOUT, 30);
@@ -428,7 +447,8 @@ function curl_get($url) {
 }
 
 // Limit a string by word count, append ellipses
-function my_string_limit_words($string, $word_limit = 0) {
+function my_string_limit_words($string, $word_limit = 0)
+{
 	$words = explode(' ', $string, ($word_limit + 1));
 	if ($word_limit > 0 && count($words) > $word_limit) {
 		array_pop($words);
@@ -439,7 +459,8 @@ function my_string_limit_words($string, $word_limit = 0) {
 }
 
 // Limit a string by character count, append ellipses
-function my_string_limit_char($string, $substr = 0) {
+function my_string_limit_char($string, $substr = 0)
+{
 	$string = strip_tags(str_replace('...', '...', $string));
 	if ($substr > 0 && strlen($string) > $substr) {
 		$string = rtrim(substr($string, 0, $substr)) . ' ...';
@@ -448,7 +469,8 @@ function my_string_limit_char($string, $substr = 0) {
 }
 
 //Add formatting to get_the_content
-function get_the_content_with_formatting($more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
+function get_the_content_with_formatting($more_link_text = '(more...)', $stripteaser = 0, $more_file = '')
+{
 	$content = get_the_content($more_link_text, $stripteaser, $more_file);
 	$content = apply_filters('the_content', $content);
 	$content = str_replace(']]>', ']]&gt;', $content);
@@ -456,7 +478,8 @@ function get_the_content_with_formatting($more_link_text = '(more...)', $stripte
 }
 
 // Remove invalid tags
-function remove_invalid_tags($str, $tags) {
+function remove_invalid_tags($str, $tags)
+{
 	foreach ($tags as $tag) {
 		$str = preg_replace('#^<\/' . $tag . '>|<' . $tag . '>$#', '', trim($str));
 	}
@@ -467,7 +490,8 @@ function remove_invalid_tags($str, $tags) {
 /**
  * Validate if element is not null, an empty string or false.
  */
-function valid_element($e) {
+function valid_element($e)
+{
 	if ($e === null || $e === '' || $e === false) {
 		return false;
 	}
@@ -477,7 +501,8 @@ function valid_element($e) {
 
 // debug help
 if (!function_exists('write_log')) {
-	function write_log($log) {
+	function write_log($log)
+	{
 		if (is_array($log) || is_object($log)) {
 			error_log(print_r($log, true));
 		} else {
@@ -488,7 +513,7 @@ if (!function_exists('write_log')) {
 
 /*
     Corrects the issue of blog article URLs not having a unique identifier in the slug, allows for each GA4 property to include an Audience for just blog traffic 
-*/
+
 function blog_audience_parameter() {
     if (get_post_type() == 'post') :
 ?>
@@ -501,3 +526,4 @@ function blog_audience_parameter() {
 <?php
     endif; 
 }
+	*/
