@@ -20,7 +20,7 @@ function blog_categories($id = null)
             <?php
             foreach ($terms as $term) {
                 if ($term->slug !== 'uncategorized') {
-                    $cat = '<a href="' . get_site_url() . '/category/' . $term->slug . '/" rel="category tag">' . $term->name . '</a>';
+                    $cat = '<a href="' . get_site_url() . '/blog/category/' . $term->slug . '/" rel="category tag">' . $term->name . '</a>';
                     array_push($cat_array, $cat);
                 }
             }
