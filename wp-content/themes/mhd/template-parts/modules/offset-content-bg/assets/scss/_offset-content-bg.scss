@@ -1,6 +1,17 @@
 .offset-content-bg {
     position: relative;
     padding-bottom: 0;
+    &.no-margin-top {
+        .offset-content-bg__container__content {
+            margin-top: 0;
+        }
+        .offset-content-bg__container {
+            padding-top: 100px;
+        }
+    }
+    &.blue-bg {
+        background: #003c71;
+    }
     &::before {
         content: '';
         background: url(/wp-content/themes/mhd/assets/images/callout-bg-2.jpg);

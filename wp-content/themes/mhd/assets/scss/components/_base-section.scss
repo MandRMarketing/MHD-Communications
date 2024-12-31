@@ -96,6 +96,12 @@
         }
     }
 
+    .show-first-second {
+        .one-third:last-of-type {
+            display: none;
+        }
+    }
+
     &.blue-cards {
         .one-third,
         .one-half,

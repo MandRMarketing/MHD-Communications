@@ -1,6 +1,11 @@
 .callout-content {
     position: relative;
     padding-bottom: 0;
+    &.remove-psuedo {
+        &::before {
+            background: #003c71 !important;
+        }
+    }
     &.callout-top {
         padding-top: 0;
         &::before {
