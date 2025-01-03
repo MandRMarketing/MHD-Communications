@@ -29,6 +29,23 @@ $color-text: #fff;
             font-weight: bold;
             text-transform: capitalize;
 
+            h3 {
+                background: transparent;
+                display: block;
+                position: relative;
+                width: 100%;
+                height: auto;
+                border: none;
+                text-align: left;
+                padding: 5px 0;
+                margin: 0;
+                pointer-events: none;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                text-transform: capitalize;
+            }
+
             &:hover,
             &:focus {
             }
@@ -69,6 +86,12 @@ $color-text: #fff;
             overflow: hidden;
             padding: 20px;
             color: white;
+            h4 {
+                color: #bdd6e6;
+                font-style: italic;
+                font-weight: 600;
+                font-size: 24px;
+            }
             strong,
             em {
                 color: $color-offwhite;

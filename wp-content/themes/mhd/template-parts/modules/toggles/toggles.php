@@ -34,7 +34,7 @@ if ($padding_top && $padding_bottom) {
                 <button class="toggle__trigger" aria-expanded="false">
                     <span class="toggle__trigger-icon" aria-hidden="true"></span>
                     <span class="toggle__trigger-text sr-only" data-show="display" data-hide="collapse">Display</span>
-                    <?= $title; ?>
+                    <h3><?= $title; ?></h3>
                 </button>
                 <div class="toggle__box" aria-hidden="true">
                     <?= do_shortcode($content); ?>
