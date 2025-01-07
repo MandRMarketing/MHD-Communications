@@ -9,6 +9,18 @@
             background: url(/wp-content/themes/mhd/assets/images/callout-bg-4.jpg);
         }
     }
+    &.nurse {
+        &::before {
+            content: '';
+            background: url(/wp-content/themes/mhd/assets/images/nurse-callout.svg);
+        }
+    }
+    &.sound {
+        &::before {
+            content: '';
+            background: url(/wp-content/themes/mhd/assets/images/sound-callout.svg);
+        }
+    }
     &::before {
         content: '';
         background: url(/wp-content/themes/mhd/assets/images/callout-bg-2.jpg);
