@@ -34,9 +34,10 @@ get_header();
 				</section>
 				<section class="section-wrap blog-content">
 					<div class="container">
-						<?= the_content(); ?>
+						<?= get_the_content(); ?>
 					</div>
 				</section>
+				<?php get_template_part('template-parts/advanced-layout'); ?>
 				<section class="section-wrap single-post-meta">
 					<div class="container" style="margin-bottom: 50px;">
 						<div class="post-meta">
