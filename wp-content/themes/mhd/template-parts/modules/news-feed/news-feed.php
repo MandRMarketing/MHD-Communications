@@ -29,49 +29,47 @@ if ($padding_top && $padding_bottom) {
     <div class="news-feed__wrapper container">
         <div class="news-feed__first-container">
             <?php
-            $category_term = get_term($category);
-            if ($category_term instanceof WP_Term) {
-                $category_slug = $category_term->slug;
-            } else {
-                $category_slug = null;
+            // Prepare category slug if category is provided
+            $category_slug = null;
+            if ($category) {
+                $category_term = get_term($category);
+                if ($category_term instanceof WP_Term) {
+                    $category_slug = $category_term->slug;
+                }
             }
+
+            // Build WP_Query args for the first article
             $args = array(
                 'post_type' => 'post',
                 'posts_per_page' => 1,
-                'category_name' => $category_slug
             );
+            if ($category_slug) {
+                $args['category_name'] = $category_slug;
+            }
 
             $articles_query = new WP_Query($args);
-            $count = 0; // To track the first article
             if ($articles_query->have_posts()) :
                 while ($articles_query->have_posts()) : $articles_query->the_post();
-                    $ID = get_the_id();
+                    $ID = get_the_ID();
                     $title = get_the_title($ID);
                     $link = get_the_permalink($ID);
                     $categories = get_the_category($ID);
                     $date = get_the_date('F j, Y', $ID); // Format the date
-
-                    // Get the featured image URL for the first article
-                    $featured_image = ($count === 0) ? get_the_post_thumbnail_url($ID, 'full') : '';
-
-                    $count++; // Increment count
-
+                    $featured_image = get_the_post_thumbnail_url($ID, 'full'); // Featured image
             ?>
                     <div class="news-feed__container__article">
                         <img src="<?= $featured_image ?>" alt="<?= $title ?>" class="featured-image">
                         <a href="<?= $link ?>">
                             <h3> <?= $title ?> </h3>
                         </a>
-                        <p class="post-date"><?= $date ?></p> <!-- Display the date -->
+                        <p class="post-date"><?= $date ?></p>
                         <p class="categories">
                             <?php
                             if ($categories) :
-                                $category_names = array();
-                                foreach ($categories as $category) :
-                                    $category_names[] = '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
-                                endforeach;
-                                //this prints all the categories with comma separators
-                                echo implode(' | ', $category_names);
+                                $category_links = array_map(function ($cat) {
+                                    return '<a href="' . get_category_link($cat->term_id) . '">' . $cat->name . '</a>';
+                                }, $categories);
+                                echo implode(' | ', $category_links);
                             endif;
                             ?>
                         </p>
@@ -79,11 +77,10 @@ if ($padding_top && $padding_bottom) {
                     </div>
                 <?php
                 endwhile;
-                // Reset the post data
                 wp_reset_postdata();
             else :
                 ?>
-                <p style="display: block; text-align: center;">There are no blog articles posted yet. Stay tuned!</p>
+                <p style="display: block; text-align: center;">There are no articles posted for this topic yet.</p>
             <?php
             endif;
             ?>
@@ -91,66 +88,48 @@ if ($padding_top && $padding_bottom) {
 
         <div class="news-feed__container">
             <?php
-            $category_term = get_term($category);
-            if ($category_term instanceof WP_Term) {
-                $category_slug = $category_term->slug;
-            } else {
-                $category_slug = null;
-            }
+            // Build WP_Query args for additional articles
             $args = array(
                 'post_type' => 'post',
                 'posts_per_page' => 4,
-                // 'category_name' => $category_slug
+                'offset' => 1, // Skip the first article
             );
+            if ($category_slug) {
+                $args['category_name'] = $category_slug;
+            }
 
             $articles_query = new WP_Query($args);
-            $count = 0; // To track the first article
             if ($articles_query->have_posts()) :
                 while ($articles_query->have_posts()) : $articles_query->the_post();
-                    $ID = get_the_id();
+                    $ID = get_the_ID();
                     $title = get_the_title($ID);
                     $link = get_the_permalink($ID);
                     $categories = get_the_category($ID);
-                    $date = get_the_date('F j, Y', $ID); // Format the date
-
-                    // Get the featured image URL for the first article
-                    $featured_image = ($count === 0) ? get_the_post_thumbnail_url($ID, 'full') : '';
-
-                    $count++; // Increment count
-
+                    $date = get_the_date('F j, Y', $ID);
             ?>
-                    <?php if ($count !== 1) : ?>
-
-                        <div class="news-feed__container__article">
-                            <a href="<?= $link ?>">
-                                <h3> <?= $title ?> </h3>
-                            </a>
-                            <p class="post-date"><?= $date ?></p> <!-- Display the date -->
-                            <p class="categories">
-                                <?php
-                                if ($categories) :
-                                    $category_names = array();
-                                    foreach ($categories as $category) :
-                                        $category_names[] = '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
-                                    endforeach;
-                                    //this prints all the categories with comma separators
-                                    echo implode(' | ', $category_names);
-                                endif;
-                                ?>
-                            </p>
-                            <a class="button-arrow" href="<?= $link ?>">Read Article</a>
-                        </div>
-                    <?php endif; ?>
-
+                    <div class="news-feed__container__article">
+                        <a href="<?= $link ?>">
+                            <h3> <?= $title ?> </h3>
+                        </a>
+                        <p class="post-date"><?= $date ?></p>
+                        <p class="categories">
+                            <?php
+                            if ($categories) :
+                                $category_links = array_map(function ($cat) {
+                                    return '<a href="' . get_category_link($cat->term_id) . '">' . $cat->name . '</a>';
+                                }, $categories);
+                                echo implode(' | ', $category_links);
+                            endif;
+                            ?>
+                        </p>
+                        <a class="button-arrow" href="<?= $link ?>">Read Article</a>
+                    </div>
             <?php
                 endwhile;
-                // Reset the post data
                 wp_reset_postdata();
-
             endif;
             ?>
         </div>
         <a class="button" href="/blog/">View All Articles</a>
-
     </div>
 </section>
