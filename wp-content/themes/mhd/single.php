@@ -34,7 +34,7 @@ get_header();
 				</section>
 				<section class="section-wrap blog-content">
 					<div class="container">
-						<?= get_the_content(); ?>
+						<?= the_content(); ?>
 					</div>
 				</section>
 				<?php get_template_part('template-parts/advanced-layout'); ?>
