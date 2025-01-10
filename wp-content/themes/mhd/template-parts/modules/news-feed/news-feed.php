@@ -58,7 +58,9 @@ if ($padding_top && $padding_bottom) {
                     $featured_image = get_the_post_thumbnail_url($ID, 'full'); // Featured image
             ?>
                     <div class="news-feed__container__article">
-                        <img src="<?= $featured_image ?>" alt="<?= $title ?>" class="featured-image">
+                        <?php if ($featured_image): ?>
+                            <img src="<?= $featured_image ?>" alt="<?= $title ?>" class="featured-image">
+                        <?php endif; ?>
                         <a href="<?= $link ?>">
                             <h3> <?= $title ?> </h3>
                         </a>
