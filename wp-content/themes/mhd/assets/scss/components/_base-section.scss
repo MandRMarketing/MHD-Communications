@@ -106,6 +106,15 @@
         .first {
             margin-left: 0 !important;
         }
+        .one-third {
+            width: 31.9141520468%;
+            @media (max-width: 1240px) {
+                width: 31.5141520468%;
+            }
+            @media (max-width: 1024px) {
+                width: 31.5141520468%;
+            }
+        }
         .one-third,
         .one-half,
         .one-fourth {
