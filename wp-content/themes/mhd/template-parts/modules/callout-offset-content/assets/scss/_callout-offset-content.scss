@@ -7,18 +7,24 @@
         &::before {
             content: '';
             background: url(/wp-content/themes/mhd/assets/images/callout-bg-4.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
     }
     &.nurse {
         &::before {
             content: '';
             background: url(/wp-content/themes/mhd/assets/images/nurse-callout.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
     }
     &.sound {
         &::before {
             content: '';
             background: url(/wp-content/themes/mhd/assets/images/sound-callout.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
     }
     &.no-bg-img {
