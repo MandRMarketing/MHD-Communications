@@ -106,6 +106,14 @@
         .first {
             margin-left: 0 !important;
         }
+        .columns__row {
+            display: flex;
+            justify-content: space-between;
+            @media (max-width: $mobile-break-max) {
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
         .one-third,
         .one-half,
         .one-fourth {
