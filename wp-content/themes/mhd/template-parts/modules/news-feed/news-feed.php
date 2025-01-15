@@ -19,6 +19,7 @@ if ($padding_top && $padding_bottom) {
 } elseif ($padding_bottom) {
     $section_classes .= ' double-padding--bot';
 }
+
 ?>
 <section class="section-wrap news-feed white-bg<?= $section_classes; ?>" <?= $id ?>>
     <div class="news-feed__header-content-container container">
@@ -47,13 +48,6 @@ if ($padding_top && $padding_bottom) {
             }
 
             $articles_query = new WP_Query($args);
-
-            // Check if no posts found, fallback to all categories
-            if (!$articles_query->have_posts() && $category_slug) {
-                $args['category_name'] = null; // Remove category restriction
-                $articles_query = new WP_Query($args);
-            }
-
             if ($articles_query->have_posts()) :
                 while ($articles_query->have_posts()) : $articles_query->the_post();
                     $ID = get_the_ID();
@@ -107,13 +101,6 @@ if ($padding_top && $padding_bottom) {
             }
 
             $articles_query = new WP_Query($args);
-
-            // Check if no posts found, fallback to all categories
-            if (!$articles_query->have_posts() && $category_slug) {
-                $args['category_name'] = null; // Remove category restriction
-                $articles_query = new WP_Query($args);
-            }
-
             if ($articles_query->have_posts()) :
                 while ($articles_query->have_posts()) : $articles_query->the_post();
                     $ID = get_the_ID();
