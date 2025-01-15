@@ -103,6 +103,9 @@
     }
 
     &.blue-cards {
+        .first {
+            margin-left: 0;
+        }
         .one-third,
         .one-half,
         .one-fourth {
