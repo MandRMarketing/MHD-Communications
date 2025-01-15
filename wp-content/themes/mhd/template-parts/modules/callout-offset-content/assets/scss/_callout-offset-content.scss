@@ -7,6 +7,7 @@
         &::before {
             content: '';
             background: url(/wp-content/themes/mhd/assets/images/callout-bg-4.jpg);
+            background-position-y: -70px;
         }
     }
     &.nurse {
@@ -19,6 +20,7 @@
         &::before {
             content: '';
             background: url(/wp-content/themes/mhd/assets/images/sound-callout.svg);
+            background-position-y: -35px;
         }
     }
     &.no-bg-img {

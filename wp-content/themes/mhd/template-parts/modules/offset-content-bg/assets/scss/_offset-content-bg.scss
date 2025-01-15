@@ -1,11 +1,16 @@
 .offset-content-bg {
     position: relative;
     padding-bottom: 0;
+    &.surveillance {
+        &::before {
+            background-position-y: -120px;
+        }
+    }
     &.security {
         &::before {
             content: '';
             background: url(/wp-content/themes/mhd/assets/images/security-callout.svg);
-            background-position-y: -150px;
+            background-position-y: -210px;
         }
         .offset-content-bg__container__content {
             @media (max-width: $first-break-max) {
