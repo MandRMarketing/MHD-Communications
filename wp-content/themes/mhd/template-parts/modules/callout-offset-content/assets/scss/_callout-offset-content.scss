@@ -21,6 +21,11 @@
             background: url(/wp-content/themes/mhd/assets/images/sound-callout.svg);
         }
     }
+    &.no-bg-img {
+        &::before {
+            background: $color-blue;
+        }
+    }
     &::before {
         content: '';
         background: url(/wp-content/themes/mhd/assets/images/callout-bg-2.jpg);
