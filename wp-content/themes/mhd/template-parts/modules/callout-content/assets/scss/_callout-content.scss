@@ -44,6 +44,9 @@
             display: flex;
             z-index: 1;
             font-size: 30px;
+            @media (max-width: $mobile-break-max) {
+                font-size: 24px;
+            }
             a {
                 text-wrap: nowrap;
             }
@@ -60,6 +63,11 @@
                     padding-right: 0px !important;
                     margin-bottom: 50px;
                     padding-bottom: 50px;
+                    @media (max-width: $mobile-break-max) {
+                        max-width: 100px;
+                        margin-bottom: 25px;
+                        padding-bottom: 25px;
+                    }
                 }
                 p {
                     text-align: center;
