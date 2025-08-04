@@ -260,6 +260,12 @@ blockquote {
         padding: 0px 0 36px;
         font-size: 30px;
     }
+    @media (max-width: $mobile-break-max) {
+        margin-top: 0 !important;
+        p:last-of-type {
+            margin-bottom: 0 !important;
+        }
+    }
 }
 
 .entry-content code {
