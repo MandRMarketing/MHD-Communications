@@ -121,6 +121,12 @@ h2,
         }
     }
 
+    @media (max-width: $mobile-break-max) {
+        margin-top: 0px !important;
+        padding-left: 0px !important;
+        padding-top: 0px !important;
+    }
+
     &::before {
         content: '';
         background: url(/wp-content/themes/mhd/assets/images/h2-decoration.svg);
@@ -134,6 +140,9 @@ h2,
         @media (max-width: $first-break-max) {
             height: 65px;
             width: 50px;
+        }
+        @media (max-width: $mobile-break-max) {
+            content: unset !important;
         }
     }
 }
