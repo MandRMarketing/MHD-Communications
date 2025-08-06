@@ -40,12 +40,7 @@ get_header();
                         <div class="columns__content">
                             <div class="columns__row no-row-padding">
                                 <div class="column ">
-                                    <h2>How to Apply</h2>
-                                    <p>To apply to any of our available positions, attach your resume and introduction letter to <a href="mailto:sam.mirandette@mhdit.com">sam.mirandette@mhdit.com</a>.</p>
-                                    <p>Include your desired start date and desired starting salary.</p>
-                                    <p><em>*Please note that if you do not meet the mandatory minimum requirements for your desired position, you may not receive a submission response.</em></p>
-                                    <h2>Benefits &amp; Incentives</h2>
-                                    <p>When you become a team member at MHD Communications, you’ll receive benefits that can include:</p>
+                                    <?php // echo get_field('application_benefits_info')['how_to_apply'] ?> 
                                 </div>
                             </div>
                             <div class="columns__row no-row-padding">
