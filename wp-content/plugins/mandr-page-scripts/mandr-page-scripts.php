@@ -287,7 +287,7 @@ function mandr_scripts_init()
     }
 
     // re-apply filter to non-code fields
-    add_filter('acf/update_value', 'mandr_scripts_acf_disallow_unfiltered_html_non_code_field', 1, 3);
+    //add_filter('acf/update_value', 'mandr_scripts_acf_disallow_unfiltered_html_non_code_field', 1, 3);
     function mandr_scripts_acf_disallow_unfiltered_html_non_code_field($value, $post_id, $field)
     {
         if (!empty($value)) {

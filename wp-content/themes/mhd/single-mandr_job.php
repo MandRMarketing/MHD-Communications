@@ -40,47 +40,80 @@ get_header();
                         <div class="columns__content">
                             <div class="columns__row no-row-padding">
                                 <div class="column ">
-                                    <h2>How to Apply</h2>
-                                    <p>To apply to any of our available positions, attach your resume and introduction letter to <a href="mailto:sam.mirandette@mhdit.com">sam.mirandette@mhdit.com</a>.</p>
-                                    <p>Include your desired start date and desired starting salary.</p>
-                                    <p><em>*Please note that if you do not meet the mandatory minimum requirements for your desired position, you may not receive a submission response.</em></p>
-                                    <h2>Benefits &amp; Incentives</h2>
-                                    <p>When you become a team member at MHD Communications, you’ll receive benefits that can include:</p>
+                                    <?php echo get_field('application_benefits_info')['how_to_apply'] ?>
                                 </div>
                             </div>
                             <div class="columns__row no-row-padding">
-                                <div class="column one-third first">
-                                    <img decoding="async" class="alignnone size-full wp-image-775" src="/wp-content/uploads/2024/05/Component-8-–-1.png" alt="" width="151" height="131">
-                                    <p>A competitive starting salary with the opportunity to receive a raise at each review</p>
-                                </div>
-                                <div class="column one-third">
-                                    <img decoding="async" class="alignnone size-full wp-image-769" src="/wp-content/uploads/2024/05/Component-9-–-1.png" alt="" width="151" height="131">
-                                    <p>Paid holidays</p>
-                                </div>
-                                <div class="column one-third">
-                                    <img loading="lazy" decoding="async" class="alignnone size-full wp-image-772" src="/wp-content/uploads/2024/05/Component-10-–-1.png" alt="" width="151" height="131">
-                                    <p>Health, vision, and dental insurance</p>
-                                </div>
+                                <?php
+                                    if (in_array('competitive-salary', get_field('application_benefits_info')['benefits'])) : 
+                                ?>
+                                        <div class="column one-third first">
+                                            <img decoding="async" class="alignnone size-full wp-image-775" src="/wp-content/uploads/2024/05/Component-8-–-1.png" alt="" width="151" height="131">
+                                            <p>A competitive starting salary with the opportunity to receive a raise at each review</p>
+                                        </div>
+                                <?php
+                                    endif; 
+
+                                    if (in_array('paid-holidays', get_field('application_benefits_info')['benefits'])) : 
+                                ?>
+                                        <div class="column one-third">
+                                            <img decoding="async" class="alignnone size-full wp-image-769" src="/wp-content/uploads/2024/05/Component-9-–-1.png" alt="" width="151" height="131">
+                                            <p>Paid holidays</p>
+                                        </div>
+                                <?php
+                                    endif;
+
+                                    if (in_array('health-vision-dental', get_field('application_benefits_info')['benefits'])) : 
+                                ?>
+                                        <div class="column one-third">
+                                            <img loading="lazy" decoding="async" class="alignnone size-full wp-image-772" src="/wp-content/uploads/2024/05/Component-10-–-1.png" alt="" width="151" height="131">
+                                            <p>Health, vision, and dental insurance</p>
+                                        </div>
+                                <?php
+                                    endif;
+                                ?>
                             </div>
                             <div class="columns__row no-row-padding">
-                                <div class="column one-third first">
-                                    <img loading="lazy" decoding="async" class="alignnone size-full wp-image-771" src="/wp-content/uploads/2024/05/Component-7-–-1.png" alt="" width="151" height="131">
-                                    <p>100% company-paid life insurance</p>
-                                </div>
-                                <div class="column one-third">
-                                    <img loading="lazy" decoding="async" class="alignnone size-full wp-image-774" src="/wp-content/uploads/2024/05/Component-12-–-1.png" alt="" width="151" height="131">
-                                    <p>Paid vacation and sick time</p>
-                                </div>
-                                <div class="column one-third">
-                                    <img loading="lazy" decoding="async" class="alignnone size-full wp-image-768" src="/wp-content/uploads/2024/05/Component-11-–-1.png" alt="" width="151" height="131">
-                                    <p>Cost coverage for your certifications</p>
-                                </div>
+                                <?php
+                                    if (in_array('life-insurance', get_field('application_benefits_info')['benefits'])) : 
+                                ?>
+                                        <div class="column one-third first">
+                                            <img loading="lazy" decoding="async" class="alignnone size-full wp-image-771" src="/wp-content/uploads/2024/05/Component-7-–-1.png" alt="" width="151" height="131">
+                                            <p>100% company-paid life insurance</p>
+                                        </div>
+                                <?php
+                                    endif;
+
+                                    if (in_array('paid-vacation-sick', get_field('application_benefits_info')['benefits'])) : 
+                                ?>
+                                        <div class="column one-third">
+                                            <img loading="lazy" decoding="async" class="alignnone size-full wp-image-774" src="/wp-content/uploads/2024/05/Component-12-–-1.png" alt="" width="151" height="131">
+                                            <p>Paid vacation and sick time</p>
+                                        </div>
+                                <?php
+                                    endif;
+
+                                    if (in_array('certification-cost-coverage', get_field('application_benefits_info')['benefits'])) : 
+                                ?>
+                                        <div class="column one-third">
+                                            <img loading="lazy" decoding="async" class="alignnone size-full wp-image-768" src="/wp-content/uploads/2024/05/Component-11-–-1.png" alt="" width="151" height="131">
+                                            <p>Cost coverage for your certifications</p>
+                                        </div>
+                                <?php
+                                    endif;
+                                ?>
                             </div>
                             <div class="columns__row no-row-padding">
-                                <div class="column ">
-                                    <img loading="lazy" decoding="async" class="alignnone size-full wp-image-773" src="/wp-content/uploads/2024/05/Component-13-–-1.png" alt="" width="151" height="131">
-                                    <p>401(k) with matching contributions</p>
-                                </div>
+                                <?php
+                                    if (in_array('401k', get_field('application_benefits_info')['benefits'])) : 
+                                ?>
+                                    <div class="column ">
+                                        <img loading="lazy" decoding="async" class="alignnone size-full wp-image-773" src="/wp-content/uploads/2024/05/Component-13-–-1.png" alt="" width="151" height="131">
+                                        <p>401(k) with matching contributions</p>
+                                    </div>
+                                <?php
+                                    endif;
+                                ?>
                             </div>
                         </div>
                     </div>
