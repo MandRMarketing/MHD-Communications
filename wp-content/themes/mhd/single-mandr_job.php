@@ -40,7 +40,7 @@ get_header();
                         <div class="columns__content">
                             <div class="columns__row no-row-padding">
                                 <div class="column ">
-                                    <?php // echo get_field('application_benefits_info')['how_to_apply'] ?> 
+                                    <?php echo get_field('application_benefits_info')['how_to_apply'] ?> 
                                 </div>
                             </div>
                             <div class="columns__row no-row-padding">
