@@ -436,9 +436,9 @@ function df_disable_comments_admin_menu_redirect()
 /**
  * removes detailed login error information for security
  */
-add_filter('login_errors', function ($a) {
-	return null;
-});
+//add_filter('login_errors', function ($a) {
+	//return null;
+//});
 
 /**
  * enable shortcodes in sidebar
